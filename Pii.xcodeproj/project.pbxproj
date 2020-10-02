@@ -15,6 +15,9 @@
 		41FEFD362527AF1C005D9514 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41FEFD342527AF1C005D9514 /* LaunchScreen.storyboard */; };
 		41FEFD412527AF1C005D9514 /* PiiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FEFD402527AF1C005D9514 /* PiiTests.swift */; };
 		41FEFD4C2527AF1C005D9514 /* PiiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FEFD4B2527AF1C005D9514 /* PiiUITests.swift */; };
+		41FEFD5F2527AF33005D9514 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41FEFD5E2527AF33005D9514 /* HealthKit.framework */; };
+		41FEFD642527AF5C005D9514 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FEFD632527AF5C005D9514 /* CalendarViewController.swift */; };
+		41FEFD702527B700005D9514 /* 無題8_20201002004911.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 41FEFD6F2527B700005D9514 /* 無題8_20201002004911.PNG */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,10 @@
 		41FEFD472527AF1C005D9514 /* PiiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PiiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		41FEFD4B2527AF1C005D9514 /* PiiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiiUITests.swift; sourceTree = "<group>"; };
 		41FEFD4D2527AF1C005D9514 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		41FEFD5C2527AF33005D9514 /* Pii.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Pii.entitlements; sourceTree = "<group>"; };
+		41FEFD5E2527AF33005D9514 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		41FEFD632527AF5C005D9514 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		41FEFD6F2527B700005D9514 /* 無題8_20201002004911.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "無題8_20201002004911.PNG"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41FEFD5F2527AF33005D9514 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,10 +87,12 @@
 		41FEFD1D2527AF1B005D9514 = {
 			isa = PBXGroup;
 			children = (
+				41FEFD6F2527B700005D9514 /* 無題8_20201002004911.PNG */,
 				41FEFD282527AF1B005D9514 /* Pii */,
 				41FEFD3F2527AF1C005D9514 /* PiiTests */,
 				41FEFD4A2527AF1C005D9514 /* PiiUITests */,
 				41FEFD272527AF1B005D9514 /* Products */,
+				41FEFD5D2527AF33005D9514 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,9 +109,11 @@
 		41FEFD282527AF1B005D9514 /* Pii */ = {
 			isa = PBXGroup;
 			children = (
+				41FEFD5C2527AF33005D9514 /* Pii.entitlements */,
 				41FEFD292527AF1B005D9514 /* AppDelegate.swift */,
 				41FEFD2B2527AF1B005D9514 /* SceneDelegate.swift */,
 				41FEFD2D2527AF1B005D9514 /* ViewController.swift */,
+				41FEFD632527AF5C005D9514 /* CalendarViewController.swift */,
 				41FEFD2F2527AF1B005D9514 /* Main.storyboard */,
 				41FEFD322527AF1C005D9514 /* Assets.xcassets */,
 				41FEFD342527AF1C005D9514 /* LaunchScreen.storyboard */,
@@ -126,6 +138,14 @@
 				41FEFD4D2527AF1C005D9514 /* Info.plist */,
 			);
 			path = PiiUITests;
+			sourceTree = "<group>";
+		};
+		41FEFD5D2527AF33005D9514 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				41FEFD5E2527AF33005D9514 /* HealthKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,6 +254,7 @@
 				41FEFD362527AF1C005D9514 /* LaunchScreen.storyboard in Resources */,
 				41FEFD332527AF1C005D9514 /* Assets.xcassets in Resources */,
 				41FEFD312527AF1B005D9514 /* Main.storyboard in Resources */,
+				41FEFD702527B700005D9514 /* 無題8_20201002004911.PNG in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +279,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41FEFD642527AF5C005D9514 /* CalendarViewController.swift in Sources */,
 				41FEFD2E2527AF1B005D9514 /* ViewController.swift in Sources */,
 				41FEFD2A2527AF1B005D9514 /* AppDelegate.swift in Sources */,
 				41FEFD2C2527AF1B005D9514 /* SceneDelegate.swift in Sources */,
@@ -436,7 +458,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Pii/Pii.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6PN9A6G6V4;
 				INFOPLIST_FILE = Pii/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -454,7 +478,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Pii/Pii.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6PN9A6G6V4;
 				INFOPLIST_FILE = Pii/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
