@@ -7,6 +7,7 @@
 
 import UIKit
 import HealthKit
+import RealmSwift
 
 class ViewController: UIViewController {
     //ボタンとラベルの宣言

@@ -3,11 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13BE24B6EA1AEDD22E9C79A4 /* Pods_Pii.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3BFE665324B5B856213F39E /* Pods_Pii.framework */; };
+		4149540B2528A63D007491C4 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4149540A2528A63D007491C4 /* Realm.framework */; };
+		4149540F2528A655007491C4 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4149540E2528A655007491C4 /* RealmSwift.framework */; };
 		41CE36B5252842F600A4635B /* Pii1.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 41CE36B4252842F600A4635B /* Pii1.PNG */; };
+		41CE36C22528857100A4635B /* CalendarRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CE36C12528857100A4635B /* CalendarRealm.swift */; };
 		41FEFD2A2527AF1B005D9514 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FEFD292527AF1B005D9514 /* AppDelegate.swift */; };
 		41FEFD2C2527AF1B005D9514 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FEFD2B2527AF1B005D9514 /* SceneDelegate.swift */; };
 		41FEFD2E2527AF1B005D9514 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FEFD2D2527AF1B005D9514 /* ViewController.swift */; };
@@ -18,6 +22,8 @@
 		41FEFD4C2527AF1C005D9514 /* PiiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FEFD4B2527AF1C005D9514 /* PiiUITests.swift */; };
 		41FEFD5F2527AF33005D9514 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41FEFD5E2527AF33005D9514 /* HealthKit.framework */; };
 		41FEFD642527AF5C005D9514 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FEFD632527AF5C005D9514 /* CalendarViewController.swift */; };
+		A3A32912CEB87E875814F941 /* Pods_PiiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AD1024310BA2EB5C3C71DB1 /* Pods_PiiTests.framework */; };
+		E725917889582CFC2A2A0CE5 /* Pods_Pii_PiiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65F22C23CB0A138043A4DDDB /* Pods_Pii_PiiUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +44,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C5B8245639B85050A89DC64 /* Pods-Pii.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pii.debug.xcconfig"; path = "Target Support Files/Pods-Pii/Pods-Pii.debug.xcconfig"; sourceTree = "<group>"; };
+		1D6D20E1876B3A33F4D7B23A /* Pods-Pii-PiiUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pii-PiiUITests.release.xcconfig"; path = "Target Support Files/Pods-Pii-PiiUITests/Pods-Pii-PiiUITests.release.xcconfig"; sourceTree = "<group>"; };
+		2AD1024310BA2EB5C3C71DB1 /* Pods_PiiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PiiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4149540A2528A63D007491C4 /* Realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4149540E2528A655007491C4 /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		41CE36B4252842F600A4635B /* Pii1.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pii1.PNG; sourceTree = "<group>"; };
+		41CE36C12528857100A4635B /* CalendarRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarRealm.swift; sourceTree = "<group>"; };
 		41FEFD262527AF1B005D9514 /* Pii.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pii.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41FEFD292527AF1B005D9514 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		41FEFD2B2527AF1B005D9514 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +68,12 @@
 		41FEFD5C2527AF33005D9514 /* Pii.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Pii.entitlements; sourceTree = "<group>"; };
 		41FEFD5E2527AF33005D9514 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		41FEFD632527AF5C005D9514 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		540D9EFE0D14C5374B291AC3 /* Pods-PiiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PiiTests.debug.xcconfig"; path = "Target Support Files/Pods-PiiTests/Pods-PiiTests.debug.xcconfig"; sourceTree = "<group>"; };
+		65F22C23CB0A138043A4DDDB /* Pods_Pii_PiiUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pii_PiiUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A5D66D44ACA720BC0BB7E99 /* Pods-Pii-PiiUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pii-PiiUITests.debug.xcconfig"; path = "Target Support Files/Pods-Pii-PiiUITests/Pods-Pii-PiiUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		9610B6F87F8B0453C97B2503 /* Pods-Pii.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pii.release.xcconfig"; path = "Target Support Files/Pods-Pii/Pods-Pii.release.xcconfig"; sourceTree = "<group>"; };
+		DD0540018946E564CC96C40D /* Pods-PiiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PiiTests.release.xcconfig"; path = "Target Support Files/Pods-PiiTests/Pods-PiiTests.release.xcconfig"; sourceTree = "<group>"; };
+		E3BFE665324B5B856213F39E /* Pods_Pii.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pii.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +81,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4149540B2528A63D007491C4 /* Realm.framework in Frameworks */,
 				41FEFD5F2527AF33005D9514 /* HealthKit.framework in Frameworks */,
+				4149540F2528A655007491C4 /* RealmSwift.framework in Frameworks */,
+				13BE24B6EA1AEDD22E9C79A4 /* Pods_Pii.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3A32912CEB87E875814F941 /* Pods_PiiTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E725917889582CFC2A2A0CE5 /* Pods_Pii_PiiUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +116,7 @@
 				41FEFD4A2527AF1C005D9514 /* PiiUITests */,
 				41FEFD272527AF1B005D9514 /* Products */,
 				41FEFD5D2527AF33005D9514 /* Frameworks */,
+				4D32D563C76E85C1CFA4D49D /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -114,6 +138,7 @@
 				41FEFD2B2527AF1B005D9514 /* SceneDelegate.swift */,
 				41FEFD2D2527AF1B005D9514 /* ViewController.swift */,
 				41FEFD632527AF5C005D9514 /* CalendarViewController.swift */,
+				41CE36C12528857100A4635B /* CalendarRealm.swift */,
 				41FEFD2F2527AF1B005D9514 /* Main.storyboard */,
 				41FEFD322527AF1C005D9514 /* Assets.xcassets */,
 				41FEFD342527AF1C005D9514 /* LaunchScreen.storyboard */,
@@ -143,9 +168,27 @@
 		41FEFD5D2527AF33005D9514 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4149540E2528A655007491C4 /* RealmSwift.framework */,
+				4149540A2528A63D007491C4 /* Realm.framework */,
 				41FEFD5E2527AF33005D9514 /* HealthKit.framework */,
+				E3BFE665324B5B856213F39E /* Pods_Pii.framework */,
+				65F22C23CB0A138043A4DDDB /* Pods_Pii_PiiUITests.framework */,
+				2AD1024310BA2EB5C3C71DB1 /* Pods_PiiTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4D32D563C76E85C1CFA4D49D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0C5B8245639B85050A89DC64 /* Pods-Pii.debug.xcconfig */,
+				9610B6F87F8B0453C97B2503 /* Pods-Pii.release.xcconfig */,
+				7A5D66D44ACA720BC0BB7E99 /* Pods-Pii-PiiUITests.debug.xcconfig */,
+				1D6D20E1876B3A33F4D7B23A /* Pods-Pii-PiiUITests.release.xcconfig */,
+				540D9EFE0D14C5374B291AC3 /* Pods-PiiTests.debug.xcconfig */,
+				DD0540018946E564CC96C40D /* Pods-PiiTests.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,9 +198,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 41FEFD502527AF1C005D9514 /* Build configuration list for PBXNativeTarget "Pii" */;
 			buildPhases = (
+				A1BB980F65AB506F8C48E45D /* [CP] Check Pods Manifest.lock */,
 				41FEFD222527AF1B005D9514 /* Sources */,
 				41FEFD232527AF1B005D9514 /* Frameworks */,
 				41FEFD242527AF1B005D9514 /* Resources */,
+				5FEEDD1979365CC7DF62E525 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -172,6 +217,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 41FEFD532527AF1C005D9514 /* Build configuration list for PBXNativeTarget "PiiTests" */;
 			buildPhases = (
+				2941E1DB5BC57C5EFBAFA4D1 /* [CP] Check Pods Manifest.lock */,
 				41FEFD382527AF1C005D9514 /* Sources */,
 				41FEFD392527AF1C005D9514 /* Frameworks */,
 				41FEFD3A2527AF1C005D9514 /* Resources */,
@@ -190,9 +236,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 41FEFD562527AF1C005D9514 /* Build configuration list for PBXNativeTarget "PiiUITests" */;
 			buildPhases = (
+				95AAB4F026F282D63896C651 /* [CP] Check Pods Manifest.lock */,
 				41FEFD432527AF1C005D9514 /* Sources */,
 				41FEFD442527AF1C005D9514 /* Frameworks */,
 				41FEFD452527AF1C005D9514 /* Resources */,
+				4038D7650CB8A42A5BBD5B64 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -274,6 +322,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2941E1DB5BC57C5EFBAFA4D1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PiiTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4038D7650CB8A42A5BBD5B64 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Pii-PiiUITests/Pods-Pii-PiiUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Pii-PiiUITests/Pods-Pii-PiiUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Pii-PiiUITests/Pods-Pii-PiiUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5FEEDD1979365CC7DF62E525 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Pii/Pods-Pii-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Pii/Pods-Pii-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Pii/Pods-Pii-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		95AAB4F026F282D63896C651 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Pii-PiiUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A1BB980F65AB506F8C48E45D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Pii-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		41FEFD222527AF1B005D9514 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -283,6 +434,7 @@
 				41FEFD2E2527AF1B005D9514 /* ViewController.swift in Sources */,
 				41FEFD2A2527AF1B005D9514 /* AppDelegate.swift in Sources */,
 				41FEFD2C2527AF1B005D9514 /* SceneDelegate.swift in Sources */,
+				41CE36C22528857100A4635B /* CalendarRealm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,6 +607,7 @@
 		};
 		41FEFD512527AF1C005D9514 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0C5B8245639B85050A89DC64 /* Pods-Pii.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -475,6 +628,7 @@
 		};
 		41FEFD522527AF1C005D9514 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9610B6F87F8B0453C97B2503 /* Pods-Pii.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -495,6 +649,7 @@
 		};
 		41FEFD542527AF1C005D9514 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 540D9EFE0D14C5374B291AC3 /* Pods-PiiTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -516,6 +671,7 @@
 		};
 		41FEFD552527AF1C005D9514 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD0540018946E564CC96C40D /* Pods-PiiTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -537,6 +693,7 @@
 		};
 		41FEFD572527AF1C005D9514 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7A5D66D44ACA720BC0BB7E99 /* Pods-Pii-PiiUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -556,6 +713,7 @@
 		};
 		41FEFD582527AF1C005D9514 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D6D20E1876B3A33F4D7B23A /* Pods-Pii-PiiUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
