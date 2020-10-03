@@ -12,7 +12,9 @@ class ViewController: UIViewController {
     //ボタンとラベルの宣言
     @IBOutlet var goukeiLabel: UILabel!
     
-    @IBOutlet var esaButton:UIButton!
+    @IBOutlet var esaButton: UIButton!
+    
+    @IBOutlet var okameImage: UIView!
     
     //HealthKitストアを作成する(インスタンス作成）
     let healthStore = HKHealthStore()
@@ -23,6 +25,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         //HealthKitの可用性を確認する
         if HKHealthStore.isHealthDataAvailable() {
                     healthStore.requestAuthorization(toShare: nil, read: hosu) { (success, error) in}
@@ -32,9 +36,20 @@ class ViewController: UIViewController {
                 }else {
                     print("非対応")
                 }
+        
+        animation()
         //メソッドの呼び出し
         health()
         // Do any additional setup after loading the view.
+    }
+    //アニメーションのメソッド
+    func animation(){
+        
+        UIView.animate(withDuration: 1.0, delay: 0.0, options: [.curveEaseIn, .autoreverse,.repeat], animations: {
+            self.okameImage.center.y += 100.0
+        }) { _ in
+            self.okameImage.center.y -= 100.0
+        }
     }
     
     func health(){

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		41CE36B5252842F600A4635B /* Pii1.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 41CE36B4252842F600A4635B /* Pii1.PNG */; };
 		41FEFD2A2527AF1B005D9514 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FEFD292527AF1B005D9514 /* AppDelegate.swift */; };
 		41FEFD2C2527AF1B005D9514 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FEFD2B2527AF1B005D9514 /* SceneDelegate.swift */; };
 		41FEFD2E2527AF1B005D9514 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FEFD2D2527AF1B005D9514 /* ViewController.swift */; };
@@ -17,7 +18,6 @@
 		41FEFD4C2527AF1C005D9514 /* PiiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FEFD4B2527AF1C005D9514 /* PiiUITests.swift */; };
 		41FEFD5F2527AF33005D9514 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41FEFD5E2527AF33005D9514 /* HealthKit.framework */; };
 		41FEFD642527AF5C005D9514 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FEFD632527AF5C005D9514 /* CalendarViewController.swift */; };
-		41FEFD702527B700005D9514 /* 無題8_20201002004911.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 41FEFD6F2527B700005D9514 /* 無題8_20201002004911.PNG */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		41CE36B4252842F600A4635B /* Pii1.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pii1.PNG; sourceTree = "<group>"; };
 		41FEFD262527AF1B005D9514 /* Pii.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pii.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41FEFD292527AF1B005D9514 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		41FEFD2B2527AF1B005D9514 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,7 +56,6 @@
 		41FEFD5C2527AF33005D9514 /* Pii.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Pii.entitlements; sourceTree = "<group>"; };
 		41FEFD5E2527AF33005D9514 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		41FEFD632527AF5C005D9514 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
-		41FEFD6F2527B700005D9514 /* 無題8_20201002004911.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "無題8_20201002004911.PNG"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,7 +87,7 @@
 		41FEFD1D2527AF1B005D9514 = {
 			isa = PBXGroup;
 			children = (
-				41FEFD6F2527B700005D9514 /* 無題8_20201002004911.PNG */,
+				41CE36B4252842F600A4635B /* Pii1.PNG */,
 				41FEFD282527AF1B005D9514 /* Pii */,
 				41FEFD3F2527AF1C005D9514 /* PiiTests */,
 				41FEFD4A2527AF1C005D9514 /* PiiUITests */,
@@ -253,8 +253,8 @@
 			files = (
 				41FEFD362527AF1C005D9514 /* LaunchScreen.storyboard in Resources */,
 				41FEFD332527AF1C005D9514 /* Assets.xcassets in Resources */,
+				41CE36B5252842F600A4635B /* Pii1.PNG in Resources */,
 				41FEFD312527AF1B005D9514 /* Main.storyboard in Resources */,
-				41FEFD702527B700005D9514 /* 無題8_20201002004911.PNG in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

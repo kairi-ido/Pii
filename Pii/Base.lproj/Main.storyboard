@@ -24,17 +24,13 @@
                                     <segue destination="D2r-SE-ZPr" kind="show" id="Za2-Yx-WBF"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="無題8_20201002004911.PNG" translatesAutoresizingMaskIntoConstraints="NO" id="HOn-Tq-1Mu">
-                                <rect key="frame" x="0.0" y="44" width="375" height="305"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pii1.PNG" translatesAutoresizingMaskIntoConstraints="NO" id="HOn-Tq-1Mu">
+                                <rect key="frame" x="85" y="119" width="205" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="DpV-WH-TcB"/>
+                                    <constraint firstAttribute="height" constant="200" id="ohr-nx-AHC"/>
+                                </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jga-Ri-05B">
-                                <rect key="frame" x="166" y="520" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tOA-NH-geB">
                                 <rect key="frame" x="279" y="420" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -43,14 +39,28 @@
                                     <action selector="eat" destination="BYZ-38-t0r" eventType="touchUpInside" id="QAP-Dj-9nW"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jga-Ri-05B">
+                                <rect key="frame" x="139.5" y="519" width="96" height="49"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="41"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HOn-Tq-1Mu" secondAttribute="trailing" constant="85" id="Mqn-qx-f1p"/>
+                            <constraint firstItem="HOn-Tq-1Mu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="85" id="XkK-HA-ohF"/>
+                            <constraint firstItem="Jga-Ri-05B" firstAttribute="top" secondItem="HOn-Tq-1Mu" secondAttribute="bottom" constant="200" id="ZFY-20-s7O"/>
+                            <constraint firstItem="Jga-Ri-05B" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jDr-nI-smo"/>
+                            <constraint firstItem="HOn-Tq-1Mu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="75" id="rSQ-ad-qje"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="home" id="g1a-Eu-87Q"/>
                     <connections>
                         <outlet property="esaButton" destination="tOA-NH-geB" id="cjx-FV-2AT"/>
                         <outlet property="goukeiLabel" destination="Jga-Ri-05B" id="59h-rs-2Ek"/>
+                        <outlet property="okameImage" destination="HOn-Tq-1Mu" id="qBM-L6-q7L"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -100,7 +110,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="無題8_20201002004911.PNG" width="768" height="1024"/>
+        <image name="Pii1.PNG" width="768" height="1024"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
