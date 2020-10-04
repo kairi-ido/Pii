@@ -7,4 +7,10 @@
 
 import Foundation
 import RealmSwift
+//モデルクラスの作成
+class CalendarRealm: Object {
+    @objc dynamic var id: Int = 0
+    @objc dynamic var hosu: Double = 0.0
+    
+}
 

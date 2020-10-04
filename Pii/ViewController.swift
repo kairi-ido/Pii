@@ -22,6 +22,11 @@ class ViewController: UIViewController {
     //歩数のみを読みこむ
     let hosu = Set([HKObjectType.quantityType(forIdentifier: .stepCount)!])
     
+    let newCalendarRealm = CalendarRealm()
+    
+    var realm: Realm!
+    
+    
     //アプリが起動したら一度だけ呼び出される
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +48,11 @@ class ViewController: UIViewController {
         health()
         // Do any additional setup after loading the view.
     }
+    
+        
+        
+        
+    
     //アニメーションのメソッド
     func animation(){
         
