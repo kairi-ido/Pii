@@ -17,14 +17,19 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     
     @IBOutlet var goukeiLabel: UILabel!
     
+    
+    var hosuArray:[CalendarRealm] = []
+    
+    var calendarRealm : Results<CalendarRealm>!
+    
+    let ViewSegueIdentifier = "toView"
+    
+    private var realm: Realm!
+    
    
     
-    var datenow: DateFormatter = {
-        
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy/MM/dd"
-        return formatter
-    }()
+    
+    
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,28 +39,41 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         
         tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "TableViewCell")
         
+        //realmのインスタンス作成
+        realm = try! Realm()
+        
+        
+        
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        tableView.reloadData()
+    }
+        
+        
+   
 
         // Do any additional setup after loading the view.
-    }
+    
     //セルの数
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        let objs: Results<CalendarRealm> = realm.objects(CalendarRealm.self)
+        return objs.count
     }
    
     //セルに値を設定するデータソースメソッド
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            // セルの内容を取得
-            let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell" ) as! TableViewCell
+        // セルの内容を取得
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell",for: indexPath ) as! TableViewCell
         
-        let realm = try! Realm()
+        let objs: Results<CalendarRealm>  = realm.objects(CalendarRealm.self)
+        //歩数を表示(realm)
+        cell.hosuLabel?.text = objs[indexPath.row].hosu
+        cell.dateLabel?.text = objs[indexPath.row].date
         
-        let results = realm.objects(CalendarRealm.self)
         
-        print(results)
         
-           //歩数を表示
-        cell.hosuLabel.text = results[1].hosu
-        cell.dateLabel.text = datenow.string(from: Date())
             return cell
         }
     
@@ -72,3 +90,4 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     */
 
 }
+

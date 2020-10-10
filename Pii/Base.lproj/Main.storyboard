@@ -7,6 +7,11 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="mojyaji.ttf">
+            <string>MOJYAJI</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--home-->
         <scene sceneID="tne-QT-ifu">
@@ -16,59 +21,106 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="huS-Ll-CSW">
-                                <rect key="frame" x="279" y="607" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="huS-Ll-CSW">
+                                <rect key="frame" x="220" y="582" width="135" height="65"/>
+                                <color key="backgroundColor" red="0.7725490196" green="0.89019607840000003" blue="0.51372549020000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="2xq-2R-Eei"/>
+                                    <constraint firstAttribute="width" constant="135" id="k0a-zX-Fc0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="calendar">
+                                    <color key="titleColor" red="0.0" green="0.3411764706" blue="0.25882352939999997" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <segue destination="D2r-SE-ZPr" kind="show" identifier="toCalendar" id="Za2-Yx-WBF"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pii1.PNG" translatesAutoresizingMaskIntoConstraints="NO" id="HOn-Tq-1Mu">
-                                <rect key="frame" x="85" y="119" width="205" height="200"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="h.PNG" translatesAutoresizingMaskIntoConstraints="NO" id="5oD-dg-8DR">
+                                <rect key="frame" x="193" y="44" width="182" height="153"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pii1" translatesAutoresizingMaskIntoConstraints="NO" id="HOn-Tq-1Mu">
+                                <rect key="frame" x="0.0" y="44" width="375" height="300"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="DpV-WH-TcB"/>
-                                    <constraint firstAttribute="height" constant="200" id="ohr-nx-AHC"/>
+                                    <constraint firstAttribute="height" constant="300" id="5Jm-wM-j9R"/>
+                                    <constraint firstAttribute="width" constant="375" id="P0w-FI-JwX"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tOA-NH-geB">
-                                <rect key="frame" x="279" y="420" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tOA-NH-geB">
+                                <rect key="frame" x="20" y="582" width="135" height="65"/>
+                                <color key="backgroundColor" red="0.7725490196" green="0.89019607840000003" blue="0.51372549020000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="135" id="XCK-oh-LDo"/>
+                                    <constraint firstAttribute="height" constant="65" id="jhX-eJ-XvF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="エサをあげる">
+                                    <color key="titleColor" red="0.0" green="0.3411764706" blue="0.25882352939999997" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="eat" destination="BYZ-38-t0r" eventType="touchUpInside" id="QAP-Dj-9nW"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jga-Ri-05B">
-                                <rect key="frame" x="139.5" y="519" width="96" height="49"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="41"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jga-Ri-05B">
+                                <rect key="frame" x="152" y="434" width="71" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" red="0.89411764709999997" green="0.96078431369999995" blue="0.87058823529999996" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="エサ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dwh-BV-ADB">
-                                <rect key="frame" x="281" y="367" width="35" height="21"/>
+                                <rect key="frame" x="285" y="311" width="35" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="おなかすいたピ" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Xy-5p-rkQ">
+                                <rect key="frame" x="224" y="119" width="127" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="MOJYAJI" family="MOJYAJI" pointSize="17"/>
+                                <color key="textColor" red="0.17254901959999999" green="0.43921568630000002" blue="0.20000000000000001" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0日目" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wXU-ZQ-tV1">
+                                <rect key="frame" x="20" y="491" width="107" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="39"/>
+                                <color key="textColor" red="0.89411764709999997" green="0.96078431369999995" blue="0.87058823529999996" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="まんぷくになったッピ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kpE-Bl-VRP">
+                                <rect key="frame" x="2" y="64" width="170" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="MOJYAJI" family="MOJYAJI" pointSize="17"/>
+                                <color key="textColor" red="0.89411764709999997" green="0.96078431369999995" blue="0.87058823529999996" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.17254901960784313" green="0.4392156862745098" blue="0.20000000000000001" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HOn-Tq-1Mu" secondAttribute="trailing" constant="85" id="Mqn-qx-f1p"/>
-                            <constraint firstItem="HOn-Tq-1Mu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="85" id="XkK-HA-ohF"/>
-                            <constraint firstItem="Jga-Ri-05B" firstAttribute="top" secondItem="HOn-Tq-1Mu" secondAttribute="bottom" constant="200" id="ZFY-20-s7O"/>
-                            <constraint firstItem="Jga-Ri-05B" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jDr-nI-smo"/>
-                            <constraint firstItem="HOn-Tq-1Mu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="75" id="rSQ-ad-qje"/>
+                            <constraint firstItem="Jga-Ri-05B" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4Pf-by-pDY"/>
+                            <constraint firstItem="Jga-Ri-05B" firstAttribute="top" secondItem="HOn-Tq-1Mu" secondAttribute="bottom" constant="90" id="7Ve-Rn-ICc"/>
+                            <constraint firstAttribute="trailing" secondItem="HOn-Tq-1Mu" secondAttribute="trailing" id="Cvp-IZ-rNp"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="huS-Ll-CSW" secondAttribute="bottom" constant="20" id="EGt-g7-58I"/>
+                            <constraint firstItem="HOn-Tq-1Mu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="IWD-xb-xGt"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tOA-NH-geB" secondAttribute="bottom" constant="20" id="NaK-FN-KTW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="huS-Ll-CSW" secondAttribute="trailing" constant="20" id="TJX-SZ-Rxp"/>
+                            <constraint firstItem="HOn-Tq-1Mu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ZcO-Ge-sPW"/>
+                            <constraint firstItem="tOA-NH-geB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="j1i-i2-0MI"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="home" id="g1a-Eu-87Q"/>
                     <connections>
+                        <outlet property="calendarButton" destination="huS-Ll-CSW" id="mic-R5-ED7"/>
+                        <outlet property="dateplusLabel" destination="wXU-ZQ-tV1" id="KBt-LV-adr"/>
                         <outlet property="esaButton" destination="tOA-NH-geB" id="cjx-FV-2AT"/>
                         <outlet property="esaLabel" destination="Dwh-BV-ADB" id="Ufb-24-Jsy"/>
                         <outlet property="goukeiLabel" destination="Jga-Ri-05B" id="59h-rs-2Ek"/>
-                        <outlet property="okameImage" destination="HOn-Tq-1Mu" id="qBM-L6-q7L"/>
+                        <outlet property="imageView" destination="HOn-Tq-1Mu" id="0w6-QV-BbJ"/>
+                        <outlet property="manpukuLabel" destination="kpE-Bl-VRP" id="jza-G6-FLo"/>
+                        <outlet property="onakaLabel" destination="6Xy-5p-rkQ" id="A2K-FS-5it"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -87,6 +139,7 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="sectionIndexBackgroundColor" red="0.17254901959999999" green="0.43921568630000002" blue="0.20000000000000001" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="66" id="8Ta-jL-6Gr">
                                         <rect key="frame" x="0.0" y="28" width="375" height="66"/>
@@ -94,13 +147,14 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8Ta-jL-6Gr" id="VQ2-o4-xFQ">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="66"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" red="0.17254901959999999" green="0.43921568630000002" blue="0.20000000000000001" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8Pl-j5-lT0"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.17254901959999999" green="0.43921568630000002" blue="0.20000000000000001" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="calendar" id="eod-fh-eFC"/>
                     <connections>
@@ -131,7 +185,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Pii1.PNG" width="768" height="1024"/>
+        <image name="Pii1" width="384" height="512"/>
+        <image name="h.PNG" width="768" height="768"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

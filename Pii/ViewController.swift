@@ -15,16 +15,43 @@ class ViewController: UIViewController {
     
     @IBOutlet var esaButton: UIButton!
     
-    @IBOutlet var okameImage: UIView!
+    @IBOutlet var calendarButton: UIButton!
     
     @IBOutlet var esaLabel: UILabel!
+    
+    @IBOutlet var imageView:UIImageView!
+    
+    @IBOutlet var onakaLabel: UILabel!
+    
+    @IBOutlet var manpukuLabel: UILabel!
+    
+    @IBOutlet var dateplusLabel: UILabel!
+    
+    
+    
+    var calendarRealm : Results<CalendarRealm>!
+    //日付を数えることができる変数
+    var number: Int = 0
+    //続けた日にちを確認するもの 
+    let saveData: UserDefaults = UserDefaults.standard
+    // userdefaultsを用意しておく
+    let UD = UserDefaults.standard
+    
+    //
+    let type = HKObjectType.quantityType(forIdentifier: .stepCount)!
+    //今日の日付を取得
+    let now = Date()
+    
+    //結果を格納するための変数
+    var step = 0.0
+    
+    
     
     //HealthKitストアを作成する(インスタンス作成）
     let healthStore = HKHealthStore()
     //歩数のみを読みこむ
     let hosu = Set([HKObjectType.quantityType(forIdentifier: .stepCount)!])
-    
-    
+
     
    
     
@@ -32,6 +59,16 @@ class ViewController: UIViewController {
     //アプリが起動したら一度だけ呼び出される
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        //ボタンを各丸にする
+        calendarButton.layer.cornerRadius = 30
+        esaButton.layer.cornerRadius = 30
+        //「お腹すいた」ラベルを表示する
+        onakaLabel.isHidden = false
+        //「満腹」ラベルを非表示にする
+        manpukuLabel.isHidden = true
+        
         //エサボタンを使えなくする
         esaButton.isEnabled = false
         
@@ -47,53 +84,41 @@ class ViewController: UIViewController {
         //メソッドの呼び出し
         
         animation()
-       
+        
+        Achievement()
+    
+   
+    }
+    // 画面に表示される直前に呼ばれる
+    // viewDidLoadとは異なり毎回呼び出される
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         health()
         
-        addItem()
-        
+        judgeDate()
     }
     
-    
-    func addItem() {
-        
-        
-        
-        
-        
-        
-          
-    }
     //アニメーションのメソッド
     func animation(){
-        
-        //飛び跳ねるよ
-        UIView.animate(withDuration: 1.0, delay: 0.0, options: [.curveEaseIn, .autoreverse,.repeat], animations: {
-            self.okameImage.center.y += 100.0
-        }) { _ in
-            self.okameImage.center.y -= 100.0
-        }
+        //パラパラ漫画にする
+        imageView.animationImages = [UIImage(named: "Pii1"),UIImage(named: "Pii2")]as? [UIImage]
+        imageView.animationDuration =  1
+        imageView.startAnimating()
     }
     //ヘルスケアのメソッド
     func health(){
-        //
-        let type = HKObjectType.quantityType(forIdentifier: .stepCount)!
-        //今日の日付を取得
-        let now = Date()
         //スタートの日付を設定する
         let startDay = Calendar.current.startOfDay(for: now)
         //取得するデータの開始と終わりを入れる
         let predicate = HKQuery.predicateForSamples(withStart: startDay, end: now)
-        //結果を格納するための変数
-        var step = 0.0
         
         //クエリを作る、統計データを取得するために使う、数値で計測できるデータのみ、cumulativeSum：合計値
         let query = HKStatisticsQuery(quantityType: type,
                                               quantitySamplePredicate: predicate,
-                                              options: .cumulativeSum) { (query, statistics, error) in
+                                              options: .cumulativeSum) { [self] (query, statistics, error) in
             
             let query_result = statistics?.sumQuantity() as Any
-            
+            //記録がないのをnilとするならば
             if error == nil {
             //doubleに変換
             step = (query_result as AnyObject).doubleValue(for: HKUnit.count())
@@ -103,44 +128,140 @@ class ViewController: UIViewController {
                 
             }
             //メインスレッド対応
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [self] in
                 //歩数のラベルに表示
-                self.goukeiLabel.text = String(step)
-                //歩数を達成したら
-                if step > 100 {
-                                    //エサが与えられるようになる
-                                    self.esaButton.isEnabled = true
-                                    
-                                }
+                self.goukeiLabel.text = "今日の歩数は"+String(step)+"歩"
                 
-                //realmに保存
-                let calendarRealm = CalendarRealm()
-                calendarRealm.hosu = String(step)
+                }
                 
-                let realm = try! Realm()
+                
+            }
+        
+        //クエリの実行
+        healthStore.execute(query)
+        
+        
+    }
+    //日付判定関数
+    func judgeDate(){
+        //現在のカレンダ情報を設定
+        let calender = Calendar.current
+        //日本時間を設定
+        let now_day = Date(timeIntervalSinceNow: 60 * 60 * 9)
+        //日付判定結果
+        var judge = Bool()
+
+        // 日時経過チェック
+        if UD.object(forKey: "today") != nil {
+             let past_day = UD.object(forKey: "today") as! Date
+             let now = calender.component(.day, from: now_day)
+             let past = calender.component(.day, from: past_day)
+
+             //日にちが変わっていた場合
+             if now != past {
+                judge = true
+             }
+             else {
+                judge = false
+             }
+         }else {
+            judge = true
+            /* 今の日時を保存 */
+            UD.set(now_day, forKey: "today")
+        }
+        
+       
+        
+        //モデルクラスをインスタンス化
+        let calendarRealm = CalendarRealm()
+        
+        calendarRealm.hosu = String(step)
+            
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy/MM/dd"
+            
+            
+        calendarRealm.date = formatter.string(from: now)
+        
+        let realm = try! Realm()
+        
+        let result = realm.objects(CalendarRealm.self)
+        
+             if judge == true {
+                
+                
                 try! realm.write {
                     realm.add(calendarRealm)
                     print("成功",calendarRealm)
                 }
                 
-                            }
-        }
-        //クエリの実行
-        healthStore.execute(query)
+                  judge = false
+             }
+             else {
+                print ("更新")
+                
+                let hosuData = realm.objects(CalendarRealm.self).filter("id == 0").first
+                
+                try! realm.write{
+                    hosuData?.hosu = String(step)
+                    hosuData?.date = formatter.string(from: now)
+                    
+                }
+             }
     }
+    
+    func Achievement(){
+        //歩数を達成したら
+        if step >= 0 {
+                            //エサが与えられるようになる
+                            self.esaButton.isEnabled = true
+            
+                            
+                        }
+        
+    }
+    
+    
     //エサを与えるボタンのメソッド
         @IBAction func eat(){
             
-           //とりあえず文字を出す
+            //エサを与えたら・・
+            
+           //とりあえず文字を出す（アニメーション）
             esaLabel.alpha = 0.0
             UIView.animate(withDuration: 2.0, delay: 1.0, options: [.curveEaseIn], animations: {
                 self.esaLabel.alpha = 1.0
             }, completion: nil)
-
-
+            
+            //「お腹すいた」ラベルを非表示にする
+            onakaLabel.isHidden = true
+            //「満腹」ラベルを表示する
+            manpukuLabel.isHidden = false
+            
+            
+        
+                
+                //取り出したものから＋１する
+                self.number = self.number + 1
+                
+                
+                //新しい値を保存する
+                self.saveData.set(self.number, forKey: "d")
+                
+                //コンソールに表示
+                print("成功",self.number)
+                
+                //保存したものを取り出す
+                self.number = saveData.object(forKey: "d") as! Int
+                
+                //ラベルに表示する
+                self.dateplusLabel.text = String(self.number) + "日目"
+                
+           
+            esaButton.isEnabled = false
+          
 
         }
+    }
 
-
-}
 

@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		13BE24B6EA1AEDD22E9C79A4 /* Pods_Pii.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3BFE665324B5B856213F39E /* Pods_Pii.framework */; };
+		411D5AEA252C2F78000DAE83 /* Pii2.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 411D5AE9252C2F78000DAE83 /* Pii2.PNG */; };
+		411D5AFA252D65DF000DAE83 /* mojyaji.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 411D5AF9252D65DF000DAE83 /* mojyaji.ttf */; };
+		411D5B02252D935D000DAE83 /* kumo.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 411D5B01252D935D000DAE83 /* kumo.PNG */; };
+		411D5B12252E1CE5000DAE83 /* h.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 411D5B11252E1CE5000DAE83 /* h.PNG */; };
 		4149540B2528A63D007491C4 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4149540A2528A63D007491C4 /* Realm.framework */; };
 		4149540F2528A655007491C4 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4149540E2528A655007491C4 /* RealmSwift.framework */; };
 		41495455252966E0007491C4 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41495453252966E0007491C4 /* TableViewCell.swift */; };
@@ -49,6 +53,10 @@
 		0C5B8245639B85050A89DC64 /* Pods-Pii.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pii.debug.xcconfig"; path = "Target Support Files/Pods-Pii/Pods-Pii.debug.xcconfig"; sourceTree = "<group>"; };
 		1D6D20E1876B3A33F4D7B23A /* Pods-Pii-PiiUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pii-PiiUITests.release.xcconfig"; path = "Target Support Files/Pods-Pii-PiiUITests/Pods-Pii-PiiUITests.release.xcconfig"; sourceTree = "<group>"; };
 		2AD1024310BA2EB5C3C71DB1 /* Pods_PiiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PiiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		411D5AE9252C2F78000DAE83 /* Pii2.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pii2.PNG; sourceTree = "<group>"; };
+		411D5AF9252D65DF000DAE83 /* mojyaji.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = mojyaji.ttf; sourceTree = "<group>"; };
+		411D5B01252D935D000DAE83 /* kumo.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kumo.PNG; sourceTree = "<group>"; };
+		411D5B11252E1CE5000DAE83 /* h.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = h.PNG; sourceTree = "<group>"; };
 		4149540A2528A63D007491C4 /* Realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4149540E2528A655007491C4 /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		41495453252966E0007491C4 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
@@ -115,6 +123,10 @@
 			isa = PBXGroup;
 			children = (
 				41CE36B4252842F600A4635B /* Pii1.PNG */,
+				411D5AE9252C2F78000DAE83 /* Pii2.PNG */,
+				411D5B01252D935D000DAE83 /* kumo.PNG */,
+				411D5AF9252D65DF000DAE83 /* mojyaji.ttf */,
+				411D5B11252E1CE5000DAE83 /* h.PNG */,
 				41FEFD282527AF1B005D9514 /* Pii */,
 				41FEFD3F2527AF1C005D9514 /* PiiTests */,
 				41FEFD4A2527AF1C005D9514 /* PiiUITests */,
@@ -307,9 +319,13 @@
 			files = (
 				41FEFD362527AF1C005D9514 /* LaunchScreen.storyboard in Resources */,
 				41495456252966E0007491C4 /* TableViewCell.xib in Resources */,
+				411D5AFA252D65DF000DAE83 /* mojyaji.ttf in Resources */,
+				411D5B12252E1CE5000DAE83 /* h.PNG in Resources */,
 				41FEFD332527AF1C005D9514 /* Assets.xcassets in Resources */,
 				41CE36B5252842F600A4635B /* Pii1.PNG in Resources */,
 				41FEFD312527AF1B005D9514 /* Main.storyboard in Resources */,
+				411D5AEA252C2F78000DAE83 /* Pii2.PNG in Resources */,
+				411D5B02252D935D000DAE83 /* kumo.PNG in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
