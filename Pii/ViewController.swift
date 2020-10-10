@@ -10,6 +10,7 @@ import HealthKit
 import RealmSwift
 
 class ViewController: UIViewController {
+    
     //ボタンとラベルの宣言
     @IBOutlet var goukeiLabel: UILabel!
     
@@ -86,6 +87,10 @@ class ViewController: UIViewController {
         animation()
         
         Achievement()
+        
+        health()
+        
+        judgeDate()
     
    
     }
@@ -95,8 +100,13 @@ class ViewController: UIViewController {
         super.viewDidAppear(animated)
         health()
         
-        judgeDate()
+        
     }
+    
+    func applicationDidBecomeActive(application: UIApplication) {
+        health()
+        print("アプリを開いた時に呼ばれる")
+        }
     
     //アニメーションのメソッド
     func animation(){
@@ -152,17 +162,23 @@ class ViewController: UIViewController {
         var judge = Bool()
 
         // 日時経過チェック
+        //UserDefaultsにtodayキーに値があるか判定、あるならば
         if UD.object(forKey: "today") != nil {
+            //最初にpast_dayにすでに保存してあった日時情報を取り出して代入
              let past_day = UD.object(forKey: "today") as! Date
+            //nowに現在の日付を代入
              let now = calender.component(.day, from: now_day)
+            //pastにpast_dayの日時情報を使って過去の日付を代入
              let past = calender.component(.day, from: past_day)
 
              //日にちが変わっていた場合
              if now != past {
                 judge = true
+                debugPrint("成功")
              }
              else {
                 judge = false
+                debugPrint("できた")
              }
          }else {
             judge = true
@@ -175,6 +191,9 @@ class ViewController: UIViewController {
         //モデルクラスをインスタンス化
         let calendarRealm = CalendarRealm()
         
+        var maxId: Int { return try! Realm().objects(CalendarRealm.self).sorted(byKeyPath: "id").last?.id ?? 0 }
+
+        
         calendarRealm.hosu = String(step)
             
         let formatter = DateFormatter()
@@ -185,7 +204,9 @@ class ViewController: UIViewController {
         
         let realm = try! Realm()
         
-        let result = realm.objects(CalendarRealm.self)
+        _ = realm.objects(CalendarRealm.self)
+        
+        calendarRealm.id = maxId + 1
         
              if judge == true {
                 
@@ -193,19 +214,20 @@ class ViewController: UIViewController {
                 try! realm.write {
                     realm.add(calendarRealm)
                     print("成功",calendarRealm)
+                    debugPrint("日付変更処理が実行された！")
                 }
                 
                   judge = false
              }
              else {
-                print ("更新")
                 
-                let hosuData = realm.objects(CalendarRealm.self).filter("id == 0").first
+                
+                let hosuData = realm.objects(CalendarRealm.self).filter("id == \(maxId)").first
                 
                 try! realm.write{
                     hosuData?.hosu = String(step)
                     hosuData?.date = formatter.string(from: now)
-                    
+                    debugPrint("更新の処理が実行された")
                 }
              }
     }
