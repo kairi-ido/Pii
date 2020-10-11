@@ -20,6 +20,12 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSHealthClinicalHealthRecordsShareUsageDescription</key>
+	<string>ヘルスケアの情報を記録します</string>
+	<key>NSHealthShareUsageDescription</key>
+	<string>ヘルスケアの情報をシェアします</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>ヘルスケアの情報を更新します</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -45,12 +51,6 @@
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
-	<key>NSHealthUpdateUsageDescription</key>
-	<string>ヘルスケアの情報を更新します</string>
-	<key>NSHealthShareUsageDescription</key>
-	<string>ヘルスケアの情報をシェアします</string>
-	<key>NSHealthClinicalHealthRecordsShareUsageDescription</key>
-	<string>ヘルスケアの情報を記録します</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

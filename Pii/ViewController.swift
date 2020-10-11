@@ -83,47 +83,50 @@ class ViewController: UIViewController {
                 }else {
                     print("非対応")
                 }
+        
+        NotificationCenter.default.addObserver(
+                   self,
+                   selector: #selector(ViewController.viewWillEnterForeground(_:)),
+                   name: UIApplication.willEnterForegroundNotification,
+                   object: nil)
+        NotificationCenter.default.addObserver(
+                   self,
+                   selector: #selector(ViewController.viewWillEnterForeground2(_:)),
+                   name: UIApplication.willEnterForegroundNotification,
+                   object: nil)
+       
         //メソッドの呼び出し
         
-       
-        judgeDate()
-        
-        health()
-        
-        Achievement()
-        
-        //アプリがActiveになるときに投げられる
-        NotificationCenter.default.addObserver(self,
-                                                       selector: #selector(health),
-                                                       name: UIApplication.didBecomeActiveNotification,
-                                                       object: nil)
-        NotificationCenter.default.addObserver(self,
-                                                       selector: #selector(judgeDate),
-                                                       name: UIApplication.didBecomeActiveNotification,
-                                                       object: nil)
-        
-        NotificationCenter.default.addObserver(self,
-                                                       selector: #selector(animation),
-                                                       name: UIApplication.didBecomeActiveNotification,
-                                                       object: nil)
     
+        self.health()
+        self.judgeDate()
+        self.animation()
+        self.Achievement()
         
-   
     }
-    deinit {
-            NotificationCenter.default.removeObserver(self)
+   
+    override func didReceiveMemoryWarning() {
+           super.didReceiveMemoryWarning()
+       }
+    
+    @objc func viewWillEnterForeground(_ notification: Notification?) {
+            if (self.isViewLoaded && (self.view.window != nil)) {
+                print("フォアグラウンド1")
+                self.health()
+            }
         }
-    // 画面に表示される直前に呼ばれる
-    // viewDidLoadとは異なり毎回呼び出される
-   
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        print("viewDidAppear")
-       
-       judgeDate()
-       
+    @objc func viewWillEnterForeground2(_ notification: Notification?) {
+            if (self.isViewLoaded && (self.view.window != nil)) {
+                print("フォアグラウンド2")
+                self.judgeDate()
+            }
+    
     }
+    
+    
 
+    
+   
     
    
     
@@ -136,6 +139,8 @@ class ViewController: UIViewController {
     }
     //ヘルスケアのメソッド
     @objc func health(){
+        
+       
         //スタートの日付を設定する
         let startDay = Calendar.current.startOfDay(for: now)
         //取得するデータの開始と終わりを入れる
@@ -171,10 +176,12 @@ class ViewController: UIViewController {
         //クエリの実行
         healthStore.execute(query)
         
-        
-    }
+        }
+    
+    
     //日付判定関数
    @objc func judgeDate(){
+    
         //現在のカレンダ情報を設定
         let calender = Calendar.current
         //日本時間を設定
@@ -195,11 +202,11 @@ class ViewController: UIViewController {
              //日にちが変わっていた場合
              if now != past {
                 judge = true
-                debugPrint("成功")
+                debugPrint("変わっていた")
              }
              else {
                 judge = false
-                debugPrint("できた")
+                debugPrint("そのまま")
              }
          }else {
             judge = true
@@ -211,27 +218,25 @@ class ViewController: UIViewController {
         //realm関係
         //モデルクラスをインスタンス化
         let calendarRealm = CalendarRealm()
-        
-        var maxId: Int { return try! Realm().objects(CalendarRealm.self).sorted(byKeyPath: "id").last?.id ?? 0 }
-
-        
-        calendarRealm.hosu = String(step)
-            
+    
+    var maxId: Int { return try! Realm().objects(CalendarRealm.self).sorted(byKeyPath: "id").last?.id ?? 0 }
+    
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy/MM/dd"
             
-            
+        calendarRealm.hosu = String(step)
         calendarRealm.date = formatter.string(from: now)
+        
         
         let realm = try! Realm()
         
-        _ = realm.objects(CalendarRealm.self)
+       
         
-        calendarRealm.id = maxId + 1
-        
-             if judge == true {
+       
+        //日付がことなったら
+        if judge == true {
                 
-                
+                //新しく登録する、idを＋１する
                 try! realm.write {
                     realm.add(calendarRealm)
                     print("成功",calendarRealm)
@@ -240,19 +245,22 @@ class ViewController: UIViewController {
                 
                   judge = false
              }
+        //日付が一緒なら、idのラスト
              else {
                 
                 //realmの更新
-                let hosuData = realm.objects(CalendarRealm.self).filter("id == \(maxId)").first
+                let hosuData = realm.objects(CalendarRealm.self).filter("id == \(maxId)").last
                 
                 try! realm.write{
                     hosuData?.hosu = String(step)
                     hosuData?.date = formatter.string(from: now)
+                   
                     debugPrint("更新の処理が実行された")
                     print(hosuData as Any)
                 }
              }
-    }
+    
+   }
     
    @objc func Achievement(){
         //歩数を達成したら
@@ -309,7 +317,7 @@ class ViewController: UIViewController {
     //とりあえず、歩数を日付確認するための更新ボタンを作ってみた
     @IBAction func load(){
       
-       
+        
         
         print(self.step,"更新成功")
     }

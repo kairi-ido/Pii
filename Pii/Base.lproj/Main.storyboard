@@ -22,11 +22,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="huS-Ll-CSW">
-                                <rect key="frame" x="215" y="542" width="130" height="80"/>
+                                <rect key="frame" x="210" y="542" width="135" height="80"/>
                                 <color key="backgroundColor" red="0.7725490196" green="0.89019607840000003" blue="0.51372549020000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="Ez3-Nf-igD"/>
-                                    <constraint firstAttribute="width" constant="130" id="qOq-cw-kmI"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="135" id="qOq-cw-kmI"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="calendar">
@@ -47,7 +47,6 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="5wb-5E-m1B"/>
-                                    <constraint firstAttribute="width" constant="375" id="MRc-kb-OTg"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tOA-NH-geB">
@@ -55,7 +54,7 @@
                                 <color key="backgroundColor" red="0.7725490196" green="0.89019607840000003" blue="0.51372549020000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="MvQ-Vc-tdl"/>
-                                    <constraint firstAttribute="width" constant="135" id="Ukt-vB-eCj"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="135" id="Ukt-vB-eCj"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="エサをあげる">
@@ -65,8 +64,8 @@
                                     <action selector="eat" destination="BYZ-38-t0r" eventType="touchUpInside" id="QAP-Dj-9nW"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jga-Ri-05B">
-                                <rect key="frame" x="152" y="404" width="71" height="36"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0歩" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jga-Ri-05B">
+                                <rect key="frame" x="150.5" y="404" width="74" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="textColor" red="0.89411764709999997" green="0.96078431369999995" blue="0.87058823529999996" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -75,7 +74,7 @@
                                 <rect key="frame" x="285" y="311" width="35" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Oy7-g4-BdE"/>
-                                    <constraint firstAttribute="width" constant="35" id="Uyd-nA-hgz"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="35" id="Uyd-nA-hgz"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -87,17 +86,11 @@
                                 <color key="textColor" red="0.89411764709999997" green="0.96078431369999995" blue="0.87058823529999996" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="まんぷくになったッピ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kpE-Bl-VRP">
-                                <rect key="frame" x="0.0" y="70" width="170" height="17"/>
-                                <fontDescription key="fontDescription" name="MOJYAJI" family="MOJYAJI" pointSize="17"/>
-                                <color key="textColor" red="0.89411764709999997" green="0.96078431369999995" blue="0.87058823529999996" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="おなかすいたピ" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Xy-5p-rkQ">
-                                <rect key="frame" x="227" y="127" width="114" height="18"/>
+                                <rect key="frame" x="232" y="125" width="105" height="18"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="114" id="P6K-Hp-C6s"/>
-                                    <constraint firstAttribute="height" constant="18" id="b6Q-vn-Ws6"/>
+                                    <constraint firstAttribute="height" constant="18" id="B2o-dJ-VA5"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="105" id="g58-xH-fwY"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="MOJYAJI" family="MOJYAJI" pointSize="15"/>
                                 <color key="textColor" red="0.17254901959999999" green="0.43921568630000002" blue="0.20000000000000001" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
@@ -111,27 +104,33 @@
                                     <action selector="load" destination="BYZ-38-t0r" eventType="touchUpInside" id="8zh-VX-ent"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="まんぷくになったッピ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kpE-Bl-VRP">
+                                <rect key="frame" x="15" y="54" width="170" height="17"/>
+                                <fontDescription key="fontDescription" name="MOJYAJI" family="MOJYAJI" pointSize="17"/>
+                                <color key="textColor" red="0.89411764709999997" green="0.96078431369999995" blue="0.87058823529999996" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.17254901960784313" green="0.4392156862745098" blue="0.20000000000000001" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="kpE-Bl-VRP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="26" id="2Wp-gc-V5I"/>
-                            <constraint firstItem="kpE-Bl-VRP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7H8-nx-NUs"/>
                             <constraint firstItem="Jga-Ri-05B" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8lR-dq-dO2"/>
                             <constraint firstItem="HOn-Tq-1Mu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="BBl-kW-EOZ"/>
                             <constraint firstItem="tOA-NH-geB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="C4c-WI-YPx"/>
-                            <constraint firstItem="6Xy-5p-rkQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="83" id="FUs-1Q-3zz"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tOA-NH-geB" secondAttribute="bottom" constant="45" id="IhI-xH-gIZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6Xy-5p-rkQ" secondAttribute="trailing" constant="22" id="Kbm-UQ-eEe"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="huS-Ll-CSW" secondAttribute="bottom" constant="45" id="M82-CG-PF3"/>
+                            <constraint firstItem="kpE-Bl-VRP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="NqJ-2h-q9h"/>
+                            <constraint firstItem="kpE-Bl-VRP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="YdG-JX-0FL"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="huS-Ll-CSW" secondAttribute="trailing" constant="30" id="dJd-js-X86"/>
                             <constraint firstItem="5oD-dg-8DR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="dRI-UZ-HsD"/>
                             <constraint firstItem="Jga-Ri-05B" firstAttribute="top" secondItem="HOn-Tq-1Mu" secondAttribute="bottom" constant="60" id="dqn-jW-5GE"/>
                             <constraint firstItem="HOn-Tq-1Mu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dvh-Zi-Ctw"/>
+                            <constraint firstItem="6Xy-5p-rkQ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="81" id="fTl-mR-x3q"/>
                             <constraint firstItem="5oD-dg-8DR" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="gs5-RV-pYr"/>
                             <constraint firstItem="wXU-ZQ-tV1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kER-At-rmL"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Dwh-BV-ADB" secondAttribute="trailing" constant="55" id="svA-5V-UHb"/>
                             <constraint firstItem="Dwh-BV-ADB" firstAttribute="top" secondItem="5oD-dg-8DR" secondAttribute="bottom" constant="114" id="uki-sR-vsB"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6Xy-5p-rkQ" secondAttribute="trailing" constant="34" id="wOE-hB-xah"/>
                             <constraint firstItem="HOn-Tq-1Mu" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="wlx-dU-5rE"/>
                             <constraint firstItem="wXU-ZQ-tV1" firstAttribute="top" secondItem="Jga-Ri-05B" secondAttribute="bottom" constant="20" id="yhn-74-dmJ"/>
                         </constraints>

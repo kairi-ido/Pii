@@ -15,7 +15,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     
     @IBOutlet var tableView:UITableView!
     
-    @IBOutlet var goukeiLabel: UILabel!
+    
     
     
     var hosuArray:[CalendarRealm] = []
@@ -45,18 +45,14 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         
         
     }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        tableView.reloadData()
-    }
+    
         
         
    
 
         // Do any additional setup after loading the view.
     
-    //セルの数
+    //セクション内のCellの数を指定する
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let objs: Results<CalendarRealm> = realm.objects(CalendarRealm.self)
         return objs.count
