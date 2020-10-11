@@ -30,7 +30,8 @@ class ViewController: UIViewController {
     
     
     
-    var calendarRealm : Results<CalendarRealm>!
+    
+    
     //日付を数えることができる変数
     var number: Int = 0
     //続けた日にちを確認するもの 
@@ -98,20 +99,17 @@ class ViewController: UIViewController {
     // viewDidLoadとは異なり毎回呼び出される
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        health()
+        
         
         
     }
     
-    func applicationDidBecomeActive(application: UIApplication) {
-        health()
-        print("アプリを開いた時に呼ばれる")
-        }
+   
     
     //アニメーションのメソッド
     func animation(){
         //パラパラ漫画にする
-        imageView.animationImages = [UIImage(named: "Pii1"),UIImage(named: "Pii2")]as? [UIImage]
+        imageView.animationImages = [UIImage(named: "pii1"),UIImage(named: "pii2")]as? [UIImage]
         imageView.animationDuration =  1
         imageView.startAnimating()
     }
@@ -187,7 +185,7 @@ class ViewController: UIViewController {
         }
         
        
-        
+        //realm関係
         //モデルクラスをインスタンス化
         let calendarRealm = CalendarRealm()
         
@@ -221,13 +219,14 @@ class ViewController: UIViewController {
              }
              else {
                 
-                
+                //realmの更新
                 let hosuData = realm.objects(CalendarRealm.self).filter("id == \(maxId)").first
                 
                 try! realm.write{
                     hosuData?.hosu = String(step)
                     hosuData?.date = formatter.string(from: now)
                     debugPrint("更新の処理が実行された")
+                    print(hosuData as Any)
                 }
              }
     }
@@ -284,6 +283,14 @@ class ViewController: UIViewController {
           
 
         }
+    //とりあえず、歩数を日付確認するための更新ボタンを作ってみた
+    @IBAction func load(){
+        health()
+        judgeDate()
+        
+        print(self.step,"更新成功")
+    }
+    
     }
 
 
