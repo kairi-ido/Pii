@@ -85,43 +85,66 @@ class ViewController: UIViewController {
                 }
         //メソッドの呼び出し
         
-        animation()
-        
-        Achievement()
+       
+        judgeDate()
         
         health()
         
-        judgeDate()
+        Achievement()
+        
+        //アプリがActiveになるときに投げられる
+        NotificationCenter.default.addObserver(self,
+                                                       selector: #selector(health),
+                                                       name: UIApplication.didBecomeActiveNotification,
+                                                       object: nil)
+        NotificationCenter.default.addObserver(self,
+                                                       selector: #selector(judgeDate),
+                                                       name: UIApplication.didBecomeActiveNotification,
+                                                       object: nil)
+        
+        NotificationCenter.default.addObserver(self,
+                                                       selector: #selector(animation),
+                                                       name: UIApplication.didBecomeActiveNotification,
+                                                       object: nil)
     
+        
    
     }
+    deinit {
+            NotificationCenter.default.removeObserver(self)
+        }
     // 画面に表示される直前に呼ばれる
     // viewDidLoadとは異なり毎回呼び出される
+   
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        
-        
+        print("viewDidAppear")
+       
+       judgeDate()
+       
     }
+
     
    
     
     //アニメーションのメソッド
-    func animation(){
+    @objc func animation(){
         //パラパラ漫画にする
         imageView.animationImages = [UIImage(named: "pii1"),UIImage(named: "pii2")]as? [UIImage]
         imageView.animationDuration =  1
         imageView.startAnimating()
     }
     //ヘルスケアのメソッド
-    func health(){
+    @objc func health(){
         //スタートの日付を設定する
         let startDay = Calendar.current.startOfDay(for: now)
         //取得するデータの開始と終わりを入れる
         let predicate = HKQuery.predicateForSamples(withStart: startDay, end: now)
         
+        
+        
         //クエリを作る、統計データを取得するために使う、数値で計測できるデータのみ、cumulativeSum：合計値
-        let query = HKStatisticsQuery(quantityType: type,
+        let query = HKStatisticsQuery(quantityType: self.type,
                                               quantitySamplePredicate: predicate,
                                               options: .cumulativeSum) { [self] (query, statistics, error) in
             
@@ -151,7 +174,7 @@ class ViewController: UIViewController {
         
     }
     //日付判定関数
-    func judgeDate(){
+   @objc func judgeDate(){
         //現在のカレンダ情報を設定
         let calender = Calendar.current
         //日本時間を設定
@@ -231,7 +254,7 @@ class ViewController: UIViewController {
              }
     }
     
-    func Achievement(){
+   @objc func Achievement(){
         //歩数を達成したら
         if step >= 0 {
                             //エサが与えられるようになる
@@ -285,8 +308,8 @@ class ViewController: UIViewController {
         }
     //とりあえず、歩数を日付確認するための更新ボタンを作ってみた
     @IBAction func load(){
-        health()
-        judgeDate()
+      
+       
         
         print(self.step,"更新成功")
     }
