@@ -12,10 +12,8 @@ class CalendarRealm: Object {
     
     @objc dynamic var hosu: String? = nil
     @objc dynamic var date: String? = nil
-    @objc dynamic var id = 0
+   
     
-    override static func primaryKey() -> String? {
-               return "id"
-           }
+    
 }
 

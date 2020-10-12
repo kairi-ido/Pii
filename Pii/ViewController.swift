@@ -54,7 +54,7 @@ class ViewController: UIViewController {
     //歩数のみを読みこむ
     let hosu = Set([HKObjectType.quantityType(forIdentifier: .stepCount)!])
 
-    
+    var backgroundTaskID : UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier(rawValue: 0)
    
     
     
@@ -89,17 +89,15 @@ class ViewController: UIViewController {
                    selector: #selector(ViewController.viewWillEnterForeground(_:)),
                    name: UIApplication.willEnterForegroundNotification,
                    object: nil)
-        NotificationCenter.default.addObserver(
-                   self,
-                   selector: #selector(ViewController.viewWillEnterForeground2(_:)),
-                   name: UIApplication.willEnterForegroundNotification,
-                   object: nil)
-       
+        
+        
         //メソッドの呼び出し
         
     
         self.health()
-        self.judgeDate()
+        
+        
+        
         self.animation()
         self.Achievement()
         
@@ -114,18 +112,12 @@ class ViewController: UIViewController {
                 print("フォアグラウンド1")
                 self.health()
             }
-        }
-    @objc func viewWillEnterForeground2(_ notification: Notification?) {
-            if (self.isViewLoaded && (self.view.window != nil)) {
-                print("フォアグラウンド2")
-                self.judgeDate()
-            }
+    
     
     }
     
     
 
-    
    
     
    
@@ -139,6 +131,7 @@ class ViewController: UIViewController {
     }
     //ヘルスケアのメソッド
     @objc func health(){
+        
         
        
         //スタートの日付を設定する
@@ -198,6 +191,8 @@ class ViewController: UIViewController {
              let now = calender.component(.day, from: now_day)
             //pastにpast_dayの日時情報を使って過去の日付を代入
              let past = calender.component(.day, from: past_day)
+            
+            
 
              //日にちが変わっていた場合
              if now != past {
@@ -210,56 +205,58 @@ class ViewController: UIViewController {
              }
          }else {
             judge = true
-            /* 今の日時を保存 */
+           //今の日時を保存
             UD.set(now_day, forKey: "today")
         }
         
        
         //realm関係
         //モデルクラスをインスタンス化
+       
         let calendarRealm = CalendarRealm()
-    
-    var maxId: Int { return try! Realm().objects(CalendarRealm.self).sorted(byKeyPath: "id").last?.id ?? 0 }
-    
+        
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy/MM/dd"
-            
-        calendarRealm.hosu = String(step)
-        calendarRealm.date = formatter.string(from: now)
-        
-        
-        let realm = try! Realm()
-        
        
         
        
         //日付がことなったら
         if judge == true {
+           
+            do {
+                       let realm = try Realm()
+                       
                 
-                //新しく登録する、idを＋１する
-                try! realm.write {
-                    realm.add(calendarRealm)
-                    print("成功",calendarRealm)
-                    debugPrint("日付変更処理が実行された！")
-                }
-                
+                calendarRealm.hosu = String(step)
+                calendarRealm.date = formatter.string(from: now)
+                       
+                       try! realm.write {
+                           realm.add(calendarRealm)
+                           print("成功だよ", calendarRealm)
+                       }
+                       
+                   } catch {
+                       print("エラーだよ")
+                   }
+               
                   judge = false
+             }else {
+                do {
+                            let realm = try Realm()
+                    
+                    let data = realm.objects(CalendarRealm.self).last
+                            try! realm.write {
+                                data?.hosu = String(step)
+                                data?.date = formatter.string(from: now)
+                                print("更新成功", data as Any)
+                            }
+                            
+                        } catch {
+                            print("エラーだよ")
+                        }
              }
-        //日付が一緒なら、idのラスト
-             else {
-                
-                //realmの更新
-                let hosuData = realm.objects(CalendarRealm.self).filter("id == \(maxId)").last
-                
-                try! realm.write{
-                    hosuData?.hosu = String(step)
-                    hosuData?.date = formatter.string(from: now)
-                   
-                    debugPrint("更新の処理が実行された")
-                    print(hosuData as Any)
-                }
-             }
-    
+    UIApplication.shared.endBackgroundTask(self.backgroundTaskID)
+   
    }
     
    @objc func Achievement(){
@@ -322,6 +319,14 @@ class ViewController: UIViewController {
         print(self.step,"更新成功")
     }
     
+    @IBAction func add(){
+        
+        self.backgroundTaskID = UIApplication.shared.beginBackgroundTask(expirationHandler: nil)
+            self.judgeDate()
     }
+    
+    }
+
+    
 
 

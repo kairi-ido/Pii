@@ -18,11 +18,11 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     
     
     
-    var hosuArray:[CalendarRealm] = []
     
-    var calendarRealm : Results<CalendarRealm>!
     
-    let ViewSegueIdentifier = "toView"
+    
+    
+    
     
     private var realm: Realm!
     
@@ -42,10 +42,16 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         //realmのインスタンス作成
         realm = try! Realm()
         
-        
+        self.tableView.backgroundColor = UIColor(red: 44/255, green: 112/255, blue: 51/255, alpha: 1)
         
     }
-    
+    // 今回はviewDidAppearでリロードする
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        
+        tableView.reloadData()
+    }
         
         
    
@@ -60,8 +66,14 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
    
     //セルに値を設定するデータソースメソッド
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         // セルの内容を取得
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell",for: indexPath ) as! TableViewCell
+        
+        cell.backgroundColor = UIColor(red: 44/255, green: 112/255, blue: 51/255, alpha: 1)
+        
+        cell.hosuLabel.textColor = UIColor(red: 228/255, green: 245/255, blue: 222/255, alpha: 1)
+        cell.dateLabel.textColor = UIColor(red: 228/255, green: 245/255, blue: 222/255, alpha: 1)
         
         let objs: Results<CalendarRealm>  = realm.objects(CalendarRealm.self)
         //歩数を表示(realm)
