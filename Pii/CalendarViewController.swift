@@ -20,7 +20,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     
     
     
-    
+    var objs: Results<CalendarRealm>!
     
     
     
@@ -37,21 +37,32 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         tableView.delegate = self
         tableView.dataSource = self
         
-        tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "TableViewCell")
         
-        //realmのインスタンス作成
-        realm = try! Realm()
-        
+        //背景変更
         self.tableView.backgroundColor = UIColor(red: 44/255, green: 112/255, blue: 51/255, alpha: 1)
         
-    }
-    // 今回はviewDidAppearでリロードする
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+        do{
+                   let realm = try Realm()
+            objs = realm.objects(CalendarRealm.self)
+                   
+            print("realmのデータを取得")
+               }catch{
 
+               }
         
+        //カスタムセル
+        tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "TableViewCell")
+        
+
+           }
+        
+    override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(animated)
+            
         tableView.reloadData()
-    }
+            
+        }
+   
         
         
    
@@ -60,7 +71,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     
     //セクション内のCellの数を指定する
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let objs: Results<CalendarRealm> = realm.objects(CalendarRealm.self)
+        
         return objs.count
     }
    
@@ -75,11 +86,11 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         cell.hosuLabel.textColor = UIColor(red: 228/255, green: 245/255, blue: 222/255, alpha: 1)
         cell.dateLabel.textColor = UIColor(red: 228/255, green: 245/255, blue: 222/255, alpha: 1)
         
-        let objs: Results<CalendarRealm>  = realm.objects(CalendarRealm.self)
+        
         //歩数を表示(realm)
         cell.hosuLabel?.text = objs[indexPath.row].hosu
         cell.dateLabel?.text = objs[indexPath.row].date
-        
+        print("表示完了")
         
         
             return cell

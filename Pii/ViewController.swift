@@ -28,6 +28,10 @@ class ViewController: UIViewController {
     
     @IBOutlet var dateplusLabel: UILabel!
     
+    @IBOutlet var huki: UIImageView!
+    
+    @IBOutlet var dasi: UIImageView!
+    
     
     
     
@@ -53,9 +57,15 @@ class ViewController: UIViewController {
     let healthStore = HKHealthStore()
     //歩数のみを読みこむ
     let hosu = Set([HKObjectType.quantityType(forIdentifier: .stepCount)!])
+    
+    //現在のカレンダ情報を設定
+    let calender = Calendar.current
+    //日本時間を設定
+    let now_day = Date(timeIntervalSinceNow: 60 * 60 * 9)
+    //日付判定結果
+    var judge = Bool()
 
-    var backgroundTaskID : UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier(rawValue: 0)
-   
+    
     
     
     //アプリが起動したら一度だけ呼び出される
@@ -68,8 +78,12 @@ class ViewController: UIViewController {
         esaButton.layer.cornerRadius = 30
         //「お腹すいた」ラベルを表示する
         onakaLabel.isHidden = false
+        
+        huki.isHidden = false
         //「満腹」ラベルを非表示にする
         manpukuLabel.isHidden = true
+        
+        dasi.isHidden = true
         
         //エサボタンを使えなくする
         esaButton.isEnabled = false
@@ -84,22 +98,28 @@ class ViewController: UIViewController {
                     print("非対応")
                 }
         
+        
         NotificationCenter.default.addObserver(
                    self,
                    selector: #selector(ViewController.viewWillEnterForeground(_:)),
                    name: UIApplication.willEnterForegroundNotification,
                    object: nil)
         
-        
+        NotificationCenter.default.addObserver(
+                   self,
+                   selector: #selector(ViewController.viewWillEnterForeground2(_:)),
+                   name: UIApplication.willEnterForegroundNotification,
+                   object: nil)
         //メソッドの呼び出し
         
     
         self.health()
         
-        
+        self.Achievement()
         
         self.animation()
-        self.Achievement()
+        
+        
         
     }
    
@@ -112,11 +132,56 @@ class ViewController: UIViewController {
                 print("フォアグラウンド1")
                 self.health()
             }
-    
-    
+    }
+    @objc func viewWillEnterForeground2(_ notification: Notification?) {
+            if (self.isViewLoaded && (self.view.window != nil)) {
+                print("フォアグラウンド2")
+                self.date1()
+            }
     }
     
-    
+    @objc func date1(){
+        
+        // 日時経過チェック
+        //UserDefaultsにtodayキーに値があるか判定、あるならば
+        if UD.object(forKey: "today") != nil {
+            //最初にpast_dayにすでに保存してあった日時情報を取り出して代入
+             let past_day = UD.object(forKey: "today") as! Date
+            //nowに現在の日付を代入
+             let now = calender.component(.day, from: now_day)
+            //pastにpast_dayの日時情報を使って過去の日付を代入
+             let past = calender.component(.day, from: past_day)
+            
+            
+
+             //日にちが変わっていた場合
+             if now != past {
+                judge = true
+                debugPrint("変わっていた")
+                    //保存したものを取り出す
+                    self.number = saveData.object(forKey: "d") as! Int
+                    //取り出したものから＋１する
+                    self.number = self.number + 1
+                    
+                    //ラベルに表示する
+                    self.dateplusLabel.text = String(self.number) + "日目"
+                //コンソールに表示
+                print("成功",self.number)
+             }
+             else {
+                judge = false
+                debugPrint("そのまま")
+             }
+         }else {
+            judge = true
+           //今の日時を保存
+            UD.set(now_day, forKey: "today")
+            //新しい値を保存する
+            self.saveData.set(self.number, forKey: "d")
+            print("保存できた")
+        }
+        
+    }
 
    
     
@@ -173,90 +238,11 @@ class ViewController: UIViewController {
     
     
     //日付判定関数
-   @objc func judgeDate(){
+   @objc func judgeDateRealm(){
     
-        //現在のカレンダ情報を設定
-        let calender = Calendar.current
-        //日本時間を設定
-        let now_day = Date(timeIntervalSinceNow: 60 * 60 * 9)
-        //日付判定結果
-        var judge = Bool()
-
-        // 日時経過チェック
-        //UserDefaultsにtodayキーに値があるか判定、あるならば
-        if UD.object(forKey: "today") != nil {
-            //最初にpast_dayにすでに保存してあった日時情報を取り出して代入
-             let past_day = UD.object(forKey: "today") as! Date
-            //nowに現在の日付を代入
-             let now = calender.component(.day, from: now_day)
-            //pastにpast_dayの日時情報を使って過去の日付を代入
-             let past = calender.component(.day, from: past_day)
-            
-            
-
-             //日にちが変わっていた場合
-             if now != past {
-                judge = true
-                debugPrint("変わっていた")
-             }
-             else {
-                judge = false
-                debugPrint("そのまま")
-             }
-         }else {
-            judge = true
-           //今の日時を保存
-            UD.set(now_day, forKey: "today")
-        }
         
        
-        //realm関係
-        //モデルクラスをインスタンス化
-       
-        let calendarRealm = CalendarRealm()
         
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy/MM/dd"
-       
-        
-       
-        //日付がことなったら
-        if judge == true {
-           
-            do {
-                       let realm = try Realm()
-                       
-                
-                calendarRealm.hosu = String(step)
-                calendarRealm.date = formatter.string(from: now)
-                       
-                       try! realm.write {
-                           realm.add(calendarRealm)
-                           print("成功だよ", calendarRealm)
-                       }
-                       
-                   } catch {
-                       print("エラーだよ")
-                   }
-               
-                  judge = false
-             }else {
-                do {
-                            let realm = try Realm()
-                    
-                    let data = realm.objects(CalendarRealm.self).last
-                            try! realm.write {
-                                data?.hosu = String(step)
-                                data?.date = formatter.string(from: now)
-                                print("更新成功", data as Any)
-                            }
-                            
-                        } catch {
-                            print("エラーだよ")
-                        }
-             }
-    UIApplication.shared.endBackgroundTask(self.backgroundTaskID)
-   
    }
     
    @objc func Achievement(){
@@ -284,45 +270,72 @@ class ViewController: UIViewController {
             
             //「お腹すいた」ラベルを非表示にする
             onakaLabel.isHidden = true
+            
+            huki.isHidden = true
             //「満腹」ラベルを表示する
             manpukuLabel.isHidden = false
+            
+            dasi.isHidden = false
             
             
         
                 
-                //取り出したものから＋１する
-                self.number = self.number + 1
                 
-                
-                //新しい値を保存する
-                self.saveData.set(self.number, forKey: "d")
-                
-                //コンソールに表示
-                print("成功",self.number)
-                
-                //保存したものを取り出す
-                self.number = saveData.object(forKey: "d") as! Int
-                
-                //ラベルに表示する
-                self.dateplusLabel.text = String(self.number) + "日目"
-                
-           
             esaButton.isEnabled = false
           
 
         }
-    //とりあえず、歩数を日付確認するための更新ボタンを作ってみた
-    @IBAction func load(){
-      
-        
-        
-        print(self.step,"更新成功")
-    }
     
     @IBAction func add(){
+        //realm関係
+        //モデルクラスをインスタンス化
+       
+        let calendarRealm = CalendarRealm()
         
-        self.backgroundTaskID = UIApplication.shared.beginBackgroundTask(expirationHandler: nil)
-            self.judgeDate()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy/MM/dd"
+       
+        
+       
+        //日付がことなったら
+        if judge == true {
+           
+            do {
+                      let realm = try Realm()
+                       
+                
+                calendarRealm.hosu = String(step)
+                calendarRealm.date = formatter.string(from: now)
+                       
+                       try! realm.write { () -> Void in
+                        
+                           realm.add(calendarRealm)
+                           print("成功だよ", calendarRealm)
+                       }
+                       
+                   } catch {
+                       print("追加エラーだよ")
+                   }
+               
+                  judge = false
+             }else {
+                do {
+                            let realm = try Realm()
+                    
+                    let data = realm.objects(CalendarRealm.self).last
+                            try! realm.write {
+                                data?.hosu = String(step)
+                                data?.date = formatter.string(from: now)
+                                print("更新成功", data as Any)
+                            }
+                            
+                        } catch {
+                            print("更新エラーだよ")
+                        }
+             }
+    
+   
+        
     }
     
     }
