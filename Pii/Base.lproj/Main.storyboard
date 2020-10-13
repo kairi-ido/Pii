@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CFf-w8-vdk">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
@@ -79,7 +79,7 @@
                                 </state>
                                 <connections>
                                     <action selector="add" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wqh-n0-sTa"/>
-                                    <segue destination="D2r-SE-ZPr" kind="show" id="rRC-xO-i67"/>
+                                    <segue destination="D2r-SE-ZPr" kind="show" identifier="toCalendar" id="rRC-xO-i67"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tOA-NH-geB">
@@ -97,12 +97,6 @@
                                     <action selector="eat" destination="BYZ-38-t0r" eventType="touchUpInside" id="QAP-Dj-9nW"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="エサ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dwh-BV-ADB">
-                                <rect key="frame" x="301" y="452" width="35" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="おなかいっぱいピ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kpE-Bl-VRP">
                                 <rect key="frame" x="18" y="70" width="97" height="20"/>
                                 <constraints>
@@ -113,6 +107,12 @@
                                 <color key="textColor" red="0.17254901959999999" green="0.43921568630000002" blue="0.20000000000000001" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onpu.png" translatesAutoresizingMaskIntoConstraints="NO" id="YK7-ga-NVQ">
+                                <rect key="frame" x="232" y="44" width="46" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="kEe-ZP-Hbi"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.17254901960784313" green="0.4392156862745098" blue="0.20000000000000001" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
@@ -123,25 +123,25 @@
                             <constraint firstItem="tOA-NH-geB" firstAttribute="top" secondItem="wXU-ZQ-tV1" secondAttribute="bottom" constant="35" id="5Mj-D6-GMI"/>
                             <constraint firstItem="4RN-kI-Lpo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="5xQ-FO-z3G"/>
                             <constraint firstItem="Jga-Ri-05B" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8lR-dq-dO2"/>
-                            <constraint firstItem="Dwh-BV-ADB" firstAttribute="leading" secondItem="wXU-ZQ-tV1" secondAttribute="trailing" constant="62" id="9E9-3M-SF6"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6Xy-5p-rkQ" secondAttribute="trailing" constant="38" id="Anh-g5-dgU"/>
                             <constraint firstItem="HOn-Tq-1Mu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="BBl-kW-EOZ"/>
                             <constraint firstItem="tOA-NH-geB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="C4c-WI-YPx"/>
                             <constraint firstItem="HOn-Tq-1Mu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CsS-wh-kV8"/>
                             <constraint firstItem="6Xy-5p-rkQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="81" id="FOl-M0-4Cv"/>
+                            <constraint firstItem="YK7-ga-NVQ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="216" id="Fd7-rx-cO9"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tOA-NH-geB" secondAttribute="bottom" constant="45" id="IhI-xH-gIZ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="huS-Ll-CSW" secondAttribute="bottom" constant="45" id="M82-CG-PF3"/>
                             <constraint firstItem="wXU-ZQ-tV1" firstAttribute="top" secondItem="Jga-Ri-05B" secondAttribute="bottom" constant="23" id="Njb-Gq-QCg"/>
                             <constraint firstItem="kpE-Bl-VRP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="18" id="Ph2-MI-EZt"/>
+                            <constraint firstItem="YK7-ga-NVQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ZNK-kW-qz1"/>
                             <constraint firstItem="Jga-Ri-05B" firstAttribute="top" secondItem="HOn-Tq-1Mu" secondAttribute="bottom" constant="40" id="bAh-bV-tIS"/>
                             <constraint firstItem="HOn-Tq-1Mu" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="bct-c8-REx"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Dwh-BV-ADB" secondAttribute="trailing" constant="39" id="bev-Bh-o9s"/>
                             <constraint firstItem="5oD-dg-8DR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="dRI-UZ-HsD"/>
                             <constraint firstItem="5oD-dg-8DR" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="gs5-RV-pYr"/>
                             <constraint firstItem="wXU-ZQ-tV1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kER-At-rmL"/>
-                            <constraint firstItem="Dwh-BV-ADB" firstAttribute="top" secondItem="HOn-Tq-1Mu" secondAttribute="bottom" constant="108" id="nON-rw-kIg"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="huS-Ll-CSW" secondAttribute="trailing" constant="30" id="rQi-yh-g3z"/>
                             <constraint firstItem="4RN-kI-Lpo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="t9b-rV-5NU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YK7-ga-NVQ" secondAttribute="trailing" constant="81" id="t9q-W0-1rm"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="home" id="g1a-Eu-87Q"/>
@@ -150,12 +150,12 @@
                         <outlet property="dasi" destination="4RN-kI-Lpo" id="0J1-8X-BX4"/>
                         <outlet property="dateplusLabel" destination="wXU-ZQ-tV1" id="KBt-LV-adr"/>
                         <outlet property="esaButton" destination="tOA-NH-geB" id="cjx-FV-2AT"/>
-                        <outlet property="esaLabel" destination="Dwh-BV-ADB" id="Ufb-24-Jsy"/>
                         <outlet property="goukeiLabel" destination="Jga-Ri-05B" id="59h-rs-2Ek"/>
                         <outlet property="huki" destination="5oD-dg-8DR" id="bGb-XP-csm"/>
                         <outlet property="imageView" destination="HOn-Tq-1Mu" id="0w6-QV-BbJ"/>
                         <outlet property="manpukuLabel" destination="kpE-Bl-VRP" id="jza-G6-FLo"/>
                         <outlet property="onakaLabel" destination="6Xy-5p-rkQ" id="A2K-FS-5it"/>
+                        <outlet property="onpu" destination="YK7-ga-NVQ" id="zX3-Hy-5gy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -229,6 +229,7 @@
     <resources>
         <image name="h.png" width="768" height="768"/>
         <image name="h3.png" width="370" height="320"/>
+        <image name="onpu.png" width="370" height="320"/>
         <image name="pii1" width="384" height="512"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

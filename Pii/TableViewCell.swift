@@ -9,8 +9,8 @@ import UIKit
 
 class TableViewCell: UITableViewCell {
     
-    @IBOutlet var hosuLabel: UILabel!
-    @IBOutlet var dateLabel: UILabel!
+    @IBOutlet weak var hosuLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
    
     override func awakeFromNib() {
         super.awakeFromNib()

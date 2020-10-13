@@ -7,13 +7,14 @@
 
 import UIKit
 import RealmSwift
+import HealthKit
 
 class CalendarViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     
     
     
-    @IBOutlet var tableView:UITableView!
+    @IBOutlet weak var tableView:UITableView!
     
     
     
@@ -24,7 +25,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     
     
     
-    private var realm: Realm!
+    var realm: Realm!
     
    
     
@@ -37,18 +38,17 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         tableView.delegate = self
         tableView.dataSource = self
         
-        
+        // Realmインスタンス取得
+        let realm = try! Realm()
+                 
+        // データ全権取得
+        self.objs = realm.objects(CalendarRealm.self)
+
+     
+            
         //背景変更
         self.tableView.backgroundColor = UIColor(red: 44/255, green: 112/255, blue: 51/255, alpha: 1)
         
-        do{
-                   let realm = try Realm()
-            objs = realm.objects(CalendarRealm.self)
-                   
-            print("realmのデータを取得")
-               }catch{
-
-               }
         
         //カスタムセル
         tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "TableViewCell")
@@ -59,7 +59,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
             
-        tableView.reloadData()
+        
             
         }
    
@@ -88,10 +88,11 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         
         
         //歩数を表示(realm)
-        cell.hosuLabel?.text = objs[indexPath.row].hosu
-        cell.dateLabel?.text = objs[indexPath.row].date
-        print("表示完了")
+       
+        let item = self.objs[(indexPath as NSIndexPath).row]
         
+        cell.hosuLabel.text = item.hosu
+        cell.dateLabel.text = item.date
         
             return cell
         }

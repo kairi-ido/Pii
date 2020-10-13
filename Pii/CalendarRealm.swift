@@ -7,6 +7,7 @@
 
 import Foundation
 import RealmSwift
+import HealthKit
 //モデルクラスの作成
 class CalendarRealm: Object {
     

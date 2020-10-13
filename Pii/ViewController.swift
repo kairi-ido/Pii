@@ -8,6 +8,7 @@
 import UIKit
 import HealthKit
 import RealmSwift
+import Lottie
 
 class ViewController: UIViewController {
     
@@ -18,7 +19,7 @@ class ViewController: UIViewController {
     
     @IBOutlet var calendarButton: UIButton!
     
-    @IBOutlet var esaLabel: UILabel!
+    
     
     @IBOutlet var imageView:UIImageView!
     
@@ -33,6 +34,8 @@ class ViewController: UIViewController {
     @IBOutlet var dasi: UIImageView!
     
     
+    
+    @IBOutlet var onpu: UIImageView!
     
     
     
@@ -66,11 +69,13 @@ class ViewController: UIViewController {
     var judge = Bool()
 
     
-    
+    //AnimationViewを宣言
+    var animationView = AnimationView()
     
     //アプリが起動したら一度だけ呼び出される
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         
         //ボタンを各丸にする
@@ -85,9 +90,12 @@ class ViewController: UIViewController {
         
         dasi.isHidden = true
         
+        
+        onpu.isHidden = true
+        
         //エサボタンを使えなくする
         esaButton.isEnabled = false
-        
+    
         //HealthKitの可用性を確認する
         if HKHealthStore.isHealthDataAvailable() {
                     healthStore.requestAuthorization(toShare: nil, read: hosu) { (success, error) in}
@@ -110,16 +118,18 @@ class ViewController: UIViewController {
                    selector: #selector(ViewController.viewWillEnterForeground2(_:)),
                    name: UIApplication.willEnterForegroundNotification,
                    object: nil)
+       
+        
         //メソッドの呼び出し
         
     
         self.health()
         
-        self.Achievement()
+       
         
         self.animation()
         
-        
+        self.date1()
         
     }
    
@@ -139,6 +149,9 @@ class ViewController: UIViewController {
                 self.date1()
             }
     }
+   
+    
+    
     
     @objc func date1(){
         
@@ -233,21 +246,16 @@ class ViewController: UIViewController {
         
         //クエリの実行
         healthStore.execute(query)
-        
+        Achievement()
         }
     
     
-    //日付判定関数
-   @objc func judgeDateRealm(){
     
-        
-       
-        
-   }
+  
     
    @objc func Achievement(){
         //歩数を達成したら
-        if step >= 0 {
+    if step >= 0{
                             //エサが与えられるようになる
                             self.esaButton.isEnabled = true
             
@@ -260,23 +268,22 @@ class ViewController: UIViewController {
     //エサを与えるボタンのメソッド
         @IBAction func eat(){
             
-            //エサを与えたら・・
+            imageView.isHidden = true
             
-           //とりあえず文字を出す（アニメーション）
-            esaLabel.alpha = 0.0
-            UIView.animate(withDuration: 2.0, delay: 1.0, options: [.curveEaseIn], animations: {
-                self.esaLabel.alpha = 1.0
-            }, completion: nil)
+            goukeiLabel.isHidden = true
             
+            dateplusLabel.isHidden = true
+
+                    addAnimationView()
+            
+           
+            
+          
             //「お腹すいた」ラベルを非表示にする
             onakaLabel.isHidden = true
             
             huki.isHidden = true
-            //「満腹」ラベルを表示する
-            manpukuLabel.isHidden = false
-            
-            dasi.isHidden = false
-            
+           
             
         
                 
@@ -285,59 +292,81 @@ class ViewController: UIViewController {
           
 
         }
+    func addAnimationView() {
+        let animationView = AnimationView(name: "animation2")
+                animationView.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height)
+                animationView.center = self.view.center
+                animationView.loopMode = .playOnce
+                animationView.contentMode = .scaleAspectFit
+                animationView.animationSpeed = 1
+
+                view.addSubview(animationView)
+        
+        animationView.play { finished in
+                    if finished {
+                        animationView.removeFromSuperview()
+                        
+                        self.imageView.isHidden = false
+                        self.animation()
+                        
+                        //「満腹」ラベルを表示する
+                        self.manpukuLabel.isHidden = false
+                        
+                        self.dasi.isHidden = false
+                        
+                        self.onpu.isHidden = false
+                        
+                        self.goukeiLabel.isHidden = false
+                        
+                        self.dateplusLabel.isHidden = false
+                        
+                    }
+                }
+    }
+    
+    
     
     @IBAction func add(){
         //realm関係
         //モデルクラスをインスタンス化
-       
         let calendarRealm = CalendarRealm()
         
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy/MM/dd"
-       
-        
-       
-        //日付がことなったら
-        if judge == true {
-           
-            do {
-                      let realm = try Realm()
-                       
-                
-                calendarRealm.hosu = String(step)
-                calendarRealm.date = formatter.string(from: now)
-                       
-                       try! realm.write { () -> Void in
-                        
-                           realm.add(calendarRealm)
-                           print("成功だよ", calendarRealm)
-                       }
-                       
-                   } catch {
-                       print("追加エラーだよ")
-                   }
-               
-                  judge = false
-             }else {
-                do {
-                            let realm = try Realm()
                     
-                    let data = realm.objects(CalendarRealm.self).last
-                            try! realm.write {
-                                data?.hosu = String(step)
-                                data?.date = formatter.string(from: now)
-                                print("更新成功", data as Any)
-                            }
-                            
-                        } catch {
-                            print("更新エラーだよ")
-                        }
+        calendarRealm.hosu = String(step)
+        calendarRealm.date = formatter.string(from: now)
+                   
+                    print(calendarRealm)
+        /* 日付が変わった場合はtrueの処理 */
+             if judge == true {
+                
+                // Realmインスタンス取得
+                let realm = try! Realm()
+                         
+                // DB登録処理
+                try! realm.write {
+                    realm.add(calendarRealm)
+                    print("登録完了")
+                }
+                  judge = false
              }
-    
-   
+             else {
+            print("更新処理")
+                // Realmインスタンス取得
+                let realm = try! Realm()
+                
+                let data = realm.objects(CalendarRealm.self).last
+                
+                try! realm.write {
+                    data?.hosu = String(step)
+                    data?.date = formatter.string(from: now)
+                    print("更新完了")
+                }
+             }
+        }
         
-    }
-    
+       
     }
 
     
