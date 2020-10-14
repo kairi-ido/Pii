@@ -13,10 +13,13 @@
 		4149540F2528A655007491C4 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4149540E2528A655007491C4 /* RealmSwift.framework */; };
 		41495455252966E0007491C4 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41495453252966E0007491C4 /* TableViewCell.swift */; };
 		41495456252966E0007491C4 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41495454252966E0007491C4 /* TableViewCell.xib */; };
+		414DCD202535DFDA00E35B7E /* animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 414DCD1F2535DFDA00E35B7E /* animation.json */; };
+		414DCD362535EFFA00E35B7E /* animation2.json in Resources */ = {isa = PBXBuildFile; fileRef = 414DCD352535EFFA00E35B7E /* animation2.json */; };
 		41CE36C22528857100A4635B /* CalendarRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CE36C12528857100A4635B /* CalendarRealm.swift */; };
 		41E234B625321838000F41EC /* h.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E234B525321838000F41EC /* h.png */; };
 		41E2DBBC25347070004AB509 /* onpu.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E2DBBB25347070004AB509 /* onpu.png */; };
 		41E2DBC6253471A2004AB509 /* h3.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E2DBC5253471A2004AB509 /* h3.png */; };
+		41E2DBCE2534C49B004AB509 /* himawari.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E2DBCD2534C49B004AB509 /* himawari.png */; };
 		41FEFD2A2527AF1B005D9514 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FEFD292527AF1B005D9514 /* AppDelegate.swift */; };
 		41FEFD2C2527AF1B005D9514 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FEFD2B2527AF1B005D9514 /* SceneDelegate.swift */; };
 		41FEFD2E2527AF1B005D9514 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FEFD2D2527AF1B005D9514 /* ViewController.swift */; };
@@ -57,10 +60,13 @@
 		4149540E2528A655007491C4 /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		41495453252966E0007491C4 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		41495454252966E0007491C4 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		414DCD1F2535DFDA00E35B7E /* animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = animation.json; sourceTree = "<group>"; };
+		414DCD352535EFFA00E35B7E /* animation2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = animation2.json; sourceTree = "<group>"; };
 		41CE36C12528857100A4635B /* CalendarRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarRealm.swift; sourceTree = "<group>"; };
 		41E234B525321838000F41EC /* h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = h.png; sourceTree = "<group>"; };
 		41E2DBBB25347070004AB509 /* onpu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = onpu.png; sourceTree = "<group>"; };
 		41E2DBC5253471A2004AB509 /* h3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = h3.png; sourceTree = "<group>"; };
+		41E2DBCD2534C49B004AB509 /* himawari.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = himawari.png; sourceTree = "<group>"; };
 		41FEFD262527AF1B005D9514 /* Pii.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pii.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41FEFD292527AF1B005D9514 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		41FEFD2B2527AF1B005D9514 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -123,6 +129,7 @@
 				411D5AF9252D65DF000DAE83 /* mojyaji.ttf */,
 				41E2DBBB25347070004AB509 /* onpu.png */,
 				41E234B525321838000F41EC /* h.png */,
+				41E2DBCD2534C49B004AB509 /* himawari.png */,
 				41E2DBC5253471A2004AB509 /* h3.png */,
 				41FEFD282527AF1B005D9514 /* Pii */,
 				41FEFD3F2527AF1C005D9514 /* PiiTests */,
@@ -153,6 +160,8 @@
 				41FEFD632527AF5C005D9514 /* CalendarViewController.swift */,
 				41CE36C12528857100A4635B /* CalendarRealm.swift */,
 				41FEFD2F2527AF1B005D9514 /* Main.storyboard */,
+				414DCD1F2535DFDA00E35B7E /* animation.json */,
+				414DCD352535EFFA00E35B7E /* animation2.json */,
 				41FEFD322527AF1C005D9514 /* Assets.xcassets */,
 				41FEFD342527AF1C005D9514 /* LaunchScreen.storyboard */,
 				41FEFD372527AF1C005D9514 /* Info.plist */,
@@ -315,13 +324,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				41E234B625321838000F41EC /* h.png in Resources */,
+				41E2DBCE2534C49B004AB509 /* himawari.png in Resources */,
 				41FEFD362527AF1C005D9514 /* LaunchScreen.storyboard in Resources */,
+				414DCD202535DFDA00E35B7E /* animation.json in Resources */,
 				41495456252966E0007491C4 /* TableViewCell.xib in Resources */,
 				411D5AFA252D65DF000DAE83 /* mojyaji.ttf in Resources */,
 				41FEFD332527AF1C005D9514 /* Assets.xcassets in Resources */,
 				41E2DBC6253471A2004AB509 /* h3.png in Resources */,
 				41E2DBBC25347070004AB509 /* onpu.png in Resources */,
 				41FEFD312527AF1B005D9514 /* Main.storyboard in Resources */,
+				414DCD362535EFFA00E35B7E /* animation2.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -633,13 +645,15 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Pii/Pii.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6PN9A6G6V4;
+				CURRENT_PROJECT_VERSION = 1.0.0;
+				DEVELOPMENT_TEAM = 4D682337CC;
 				INFOPLIST_FILE = Pii/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = app.ido.umi.Pii;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dev.umi.Piiwalk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -654,13 +668,15 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Pii/Pii.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6PN9A6G6V4;
+				CURRENT_PROJECT_VERSION = 1.0.0;
+				DEVELOPMENT_TEAM = 4D682337CC;
 				INFOPLIST_FILE = Pii/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = app.ido.umi.Pii;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dev.umi.Piiwalk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -673,7 +689,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4D682337CC;
 				INFOPLIST_FILE = PiiTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -716,7 +734,9 @@
 			baseConfigurationReference = 7A5D66D44ACA720BC0BB7E99 /* Pods-Pii-PiiUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4D682337CC;
 				INFOPLIST_FILE = PiiUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

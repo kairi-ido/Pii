@@ -113,13 +113,21 @@
                                     <constraint firstAttribute="height" constant="46" id="kEe-ZP-Hbi"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3000歩あるいたらエサがあげられるよ！" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Afx-K2-Pgs">
+                                <rect key="frame" x="28" y="626" width="319" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.89411764709999997" green="0.96078431369999995" blue="0.87058823529999996" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.17254901960784313" green="0.4392156862745098" blue="0.20000000000000001" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="HOn-Tq-1Mu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="2kf-gl-bRf"/>
+                            <constraint firstItem="Afx-K2-Pgs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="28" id="39z-SS-CfK"/>
                             <constraint firstItem="huS-Ll-CSW" firstAttribute="top" secondItem="wXU-ZQ-tV1" secondAttribute="bottom" constant="35" id="3Mh-NL-wGl"/>
                             <constraint firstItem="kpE-Bl-VRP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="26" id="4mV-o5-UAB"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Afx-K2-Pgs" secondAttribute="bottom" constant="20" id="4my-73-OAY"/>
                             <constraint firstItem="tOA-NH-geB" firstAttribute="top" secondItem="wXU-ZQ-tV1" secondAttribute="bottom" constant="35" id="5Mj-D6-GMI"/>
                             <constraint firstItem="4RN-kI-Lpo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="5xQ-FO-z3G"/>
                             <constraint firstItem="Jga-Ri-05B" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8lR-dq-dO2"/>
@@ -134,9 +142,12 @@
                             <constraint firstItem="wXU-ZQ-tV1" firstAttribute="top" secondItem="Jga-Ri-05B" secondAttribute="bottom" constant="23" id="Njb-Gq-QCg"/>
                             <constraint firstItem="kpE-Bl-VRP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="18" id="Ph2-MI-EZt"/>
                             <constraint firstItem="YK7-ga-NVQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ZNK-kW-qz1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Afx-K2-Pgs" secondAttribute="trailing" constant="28" id="avL-GU-XaZ"/>
                             <constraint firstItem="Jga-Ri-05B" firstAttribute="top" secondItem="HOn-Tq-1Mu" secondAttribute="bottom" constant="40" id="bAh-bV-tIS"/>
                             <constraint firstItem="HOn-Tq-1Mu" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="bct-c8-REx"/>
                             <constraint firstItem="5oD-dg-8DR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="dRI-UZ-HsD"/>
+                            <constraint firstItem="Afx-K2-Pgs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="eIb-5p-9B1"/>
+                            <constraint firstItem="Afx-K2-Pgs" firstAttribute="top" secondItem="huS-Ll-CSW" secondAttribute="bottom" constant="4" id="gaK-pk-3om"/>
                             <constraint firstItem="5oD-dg-8DR" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="gs5-RV-pYr"/>
                             <constraint firstItem="wXU-ZQ-tV1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kER-At-rmL"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="huS-Ll-CSW" secondAttribute="trailing" constant="30" id="rQi-yh-g3z"/>
