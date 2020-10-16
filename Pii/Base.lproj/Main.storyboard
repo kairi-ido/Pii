@@ -78,7 +78,6 @@
                                     <color key="titleColor" red="0.0" green="0.3411764706" blue="0.25882352939999997" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="add" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wqh-n0-sTa"/>
                                     <segue destination="D2r-SE-ZPr" kind="show" identifier="toCalendar" id="rRC-xO-i67"/>
                                 </connections>
                             </button>
@@ -94,7 +93,7 @@
                                     <color key="titleColor" red="0.0" green="0.3411764706" blue="0.25882352939999997" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="eat" destination="BYZ-38-t0r" eventType="touchUpInside" id="QAP-Dj-9nW"/>
+                                    <action selector="eat" destination="BYZ-38-t0r" eventType="touchUpInside" id="7Cr-Mo-94O"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="おなかいっぱいピ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kpE-Bl-VRP">
@@ -161,7 +160,7 @@
                         <outlet property="dasi" destination="4RN-kI-Lpo" id="0J1-8X-BX4"/>
                         <outlet property="dateplusLabel" destination="wXU-ZQ-tV1" id="KBt-LV-adr"/>
                         <outlet property="esaButton" destination="tOA-NH-geB" id="cjx-FV-2AT"/>
-                        <outlet property="goukeiLabel" destination="Jga-Ri-05B" id="59h-rs-2Ek"/>
+                        <outlet property="goukeiLabel" destination="Jga-Ri-05B" id="nTq-Fd-DDS"/>
                         <outlet property="huki" destination="5oD-dg-8DR" id="bGb-XP-csm"/>
                         <outlet property="imageView" destination="HOn-Tq-1Mu" id="0w6-QV-BbJ"/>
                         <outlet property="manpukuLabel" destination="kpE-Bl-VRP" id="jza-G6-FLo"/>
@@ -212,11 +211,39 @@
                     <navigationItem key="navigationItem" title="calendar" id="eod-fh-eFC"/>
                     <connections>
                         <outlet property="tableView" destination="wNP-Sv-90x" id="x2C-q9-2J8"/>
+                        <segue destination="7Bt-OW-DPl" kind="modal" identifier="ModalSegue" id="8FV-e2-VL3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VL4-Wm-fWW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1918" y="58"/>
+        </scene>
+        <!--Modal View Controller-->
+        <scene sceneID="mEm-op-Yhb">
+            <objects>
+                <viewController modalPresentationStyle="overCurrentContext" id="7Bt-OW-DPl" customClass="ModalViewController" customModule="Pii" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8I4-3k-cRi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sakurabuncyo.png" translatesAutoresizingMaskIntoConstraints="NO" id="kH9-9c-CXm">
+                                <rect key="frame" x="2.5" y="173.5" width="370" height="320"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ZnL-f4-ejt"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="kH9-9c-CXm" firstAttribute="centerX" secondItem="8I4-3k-cRi" secondAttribute="centerX" id="2wF-6v-GsL"/>
+                            <constraint firstItem="kH9-9c-CXm" firstAttribute="centerY" secondItem="8I4-3k-cRi" secondAttribute="centerY" id="cpV-21-hXC"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="kotoriImageView" destination="kH9-9c-CXm" id="BXR-Zf-FG1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qbw-Lr-AJS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2679" y="57"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jo8-wo-dCZ">
@@ -242,6 +269,7 @@
         <image name="h3.png" width="370" height="320"/>
         <image name="onpu.png" width="370" height="320"/>
         <image name="pii1" width="384" height="512"/>
+        <image name="sakurabuncyo.png" width="370" height="320"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

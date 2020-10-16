@@ -15,6 +15,9 @@
 		41495456252966E0007491C4 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41495454252966E0007491C4 /* TableViewCell.xib */; };
 		414DCD202535DFDA00E35B7E /* animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 414DCD1F2535DFDA00E35B7E /* animation.json */; };
 		414DCD362535EFFA00E35B7E /* animation2.json in Resources */ = {isa = PBXBuildFile; fileRef = 414DCD352535EFFA00E35B7E /* animation2.json */; };
+		4168E84F2538C58A004804B7 /* sakurabuncyo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4168E84E2538C58A004804B7 /* sakurabuncyo.png */; };
+		4168E8572538C933004804B7 /* kiui.png in Resources */ = {isa = PBXBuildFile; fileRef = 4168E8562538C933004804B7 /* kiui.png */; };
+		417621E22537630E00BB068D /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417621E12537630E00BB068D /* ModalViewController.swift */; };
 		41CE36C22528857100A4635B /* CalendarRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CE36C12528857100A4635B /* CalendarRealm.swift */; };
 		41E234B625321838000F41EC /* h.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E234B525321838000F41EC /* h.png */; };
 		41E2DBBC25347070004AB509 /* onpu.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E2DBBB25347070004AB509 /* onpu.png */; };
@@ -62,6 +65,9 @@
 		41495454252966E0007491C4 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		414DCD1F2535DFDA00E35B7E /* animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = animation.json; sourceTree = "<group>"; };
 		414DCD352535EFFA00E35B7E /* animation2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = animation2.json; sourceTree = "<group>"; };
+		4168E84E2538C58A004804B7 /* sakurabuncyo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sakurabuncyo.png; sourceTree = "<group>"; };
+		4168E8562538C933004804B7 /* kiui.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kiui.png; sourceTree = "<group>"; };
+		417621E12537630E00BB068D /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		41CE36C12528857100A4635B /* CalendarRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarRealm.swift; sourceTree = "<group>"; };
 		41E234B525321838000F41EC /* h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = h.png; sourceTree = "<group>"; };
 		41E2DBBB25347070004AB509 /* onpu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = onpu.png; sourceTree = "<group>"; };
@@ -130,6 +136,8 @@
 				41E2DBBB25347070004AB509 /* onpu.png */,
 				41E234B525321838000F41EC /* h.png */,
 				41E2DBCD2534C49B004AB509 /* himawari.png */,
+				4168E84E2538C58A004804B7 /* sakurabuncyo.png */,
+				4168E8562538C933004804B7 /* kiui.png */,
 				41E2DBC5253471A2004AB509 /* h3.png */,
 				41FEFD282527AF1B005D9514 /* Pii */,
 				41FEFD3F2527AF1C005D9514 /* PiiTests */,
@@ -159,6 +167,7 @@
 				41FEFD2D2527AF1B005D9514 /* ViewController.swift */,
 				41FEFD632527AF5C005D9514 /* CalendarViewController.swift */,
 				41CE36C12528857100A4635B /* CalendarRealm.swift */,
+				417621E12537630E00BB068D /* ModalViewController.swift */,
 				41FEFD2F2527AF1B005D9514 /* Main.storyboard */,
 				414DCD1F2535DFDA00E35B7E /* animation.json */,
 				414DCD352535EFFA00E35B7E /* animation2.json */,
@@ -325,10 +334,12 @@
 			files = (
 				41E234B625321838000F41EC /* h.png in Resources */,
 				41E2DBCE2534C49B004AB509 /* himawari.png in Resources */,
+				4168E8572538C933004804B7 /* kiui.png in Resources */,
 				41FEFD362527AF1C005D9514 /* LaunchScreen.storyboard in Resources */,
 				414DCD202535DFDA00E35B7E /* animation.json in Resources */,
 				41495456252966E0007491C4 /* TableViewCell.xib in Resources */,
 				411D5AFA252D65DF000DAE83 /* mojyaji.ttf in Resources */,
+				4168E84F2538C58A004804B7 /* sakurabuncyo.png in Resources */,
 				41FEFD332527AF1C005D9514 /* Assets.xcassets in Resources */,
 				41E2DBC6253471A2004AB509 /* h3.png in Resources */,
 				41E2DBBC25347070004AB509 /* onpu.png in Resources */,
@@ -467,6 +478,7 @@
 				41495455252966E0007491C4 /* TableViewCell.swift in Sources */,
 				41FEFD2C2527AF1B005D9514 /* SceneDelegate.swift in Sources */,
 				41CE36C22528857100A4635B /* CalendarRealm.swift in Sources */,
+				417621E22537630E00BB068D /* ModalViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

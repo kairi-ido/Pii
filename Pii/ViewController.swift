@@ -62,11 +62,10 @@ class ViewController: UIViewController {
     //歩数のみを読みこむ
     let hosu = Set([HKObjectType.quantityType(forIdentifier: .stepCount)!])
     
-    //現在のカレンダ情報を設定
-    let calender = Calendar(identifier: .gregorian)
+    
     
     //日本時間を設定
-    let now_day = Date(timeIntervalSinceNow: 60 * 60 * 9)
+    
     //日付判定結果
     var judge = Bool()
 
@@ -77,30 +76,21 @@ class ViewController: UIViewController {
     //アプリが起動したら一度だけ呼び出される
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-
-        
-        
-        
-        
         //ボタンを各丸にする
         calendarButton.layer.cornerRadius = 30
         esaButton.layer.cornerRadius = 30
         //「お腹すいた」ラベルを表示する
         onakaLabel.isHidden = false
-        
+        //吹き出し１を表示
         huki.isHidden = false
         //「満腹」ラベルを非表示にする
         manpukuLabel.isHidden = true
-        
+        //吹き出し２を非表示
         dasi.isHidden = true
         
         
         onpu.isHidden = true
         
-        
-    
         //HealthKitの可用性を確認する
         if HKHealthStore.isHealthDataAvailable() {
                     healthStore.requestAuthorization(toShare: nil, read: hosu) { (success, error) in}
@@ -115,22 +105,28 @@ class ViewController: UIViewController {
         NotificationCenter.default.addObserver(
                    self,
                    selector: #selector(ViewController.viewWillEnterForeground(_:)),
-                   name: UIApplication.willEnterForegroundNotification,
+                   name: UIApplication.didBecomeActiveNotification,
                    object: nil)
-        
-        
+        NotificationCenter.default.addObserver(
+                   self,
+                   selector: #selector(ViewController.viewWillEnterForeground1(_:)),
+                   name: UIApplication.didBecomeActiveNotification,
+                   object: nil)
+        NotificationCenter.default.addObserver(
+                   self,
+                   selector: #selector(ViewController.viewWillEnterForeground2(_:)),
+                   name: UIApplication.didBecomeActiveNotification,
+                   object: nil)
        
         
         //メソッドの呼び出し
+      
+        health()
         
-    
-        self.health()
+        date1()
+       
+        animation()
         
-        
-        
-        self.animation()
-        
-        self.date1()
         Achievement()
         
     }
@@ -138,41 +134,51 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
            super.didReceiveMemoryWarning()
        }
+   
     
     @objc func viewWillEnterForeground(_ notification: Notification?) {
+            if (self.isViewLoaded && (self.view.window != nil)) {
+                print("フォアグラウンド")
+                self.health()
+            }
+    }
+    @objc func viewWillEnterForeground1(_ notification: Notification?) {
             if (self.isViewLoaded && (self.view.window != nil)) {
                 print("フォアグラウンド1")
                 self.Achievement()
             }
     }
-    
-    
-
-
-
-    
+    @objc func viewWillEnterForeground2
+    (_ notification: Notification?) {
+            if (self.isViewLoaded && (self.view.window != nil)) {
+                print("フォアグラウンド1")
+                self.date1()
+            }
+    }
+    //日時経過チェック
     @objc func date1(){
         
+        //現在のカレンダ情報を設定
+        let calender = Calendar(identifier: .gregorian)
+        let now_day = now + (60 * 60 * 9)
         
-            // 日時経過チェック
             //UserDefaultsにtodayキーに値があるか判定、あるならば
             if UD.object(forKey: "today") != nil {
             //最初にpast_dayにすでに保存してあった日時情報を取り出して代入
-             let past_day = UD.object(forKey: "today") as! Date
-            
+            let past_day = UD.object(forKey: "today") as! Date
             print(past_day)
             //nowに現在の日付を代入
-             let now = calender.component(.day, from: now_day)
+            let now1 = calender.dateComponents([.year,.month,.day], from: now_day)
             print(now_day)
             //pastにpast_dayの日時情報を使って過去の日付を代入
-             let past = calender.component(.day, from: past_day)
+            let past = calender.dateComponents([.year,.month,.day], from: past_day)
            
             print(past)
-            print(now)
+            print(now1)
             
 
              //日にちが変わっていた場合
-             if now != past {
+             if now1 != past {
                 judge = true
                 debugPrint("変わっていた")
                     //保存したものを取り出す
@@ -180,8 +186,7 @@ class ViewController: UIViewController {
                     //取り出したものから＋１する
                     self.number = self.number + 1
                     
-                    //ラベルに表示する
-                    self.dateplusLabel.text = String(self.number) + "日目"
+                
                 //コンソールに表示
                 print("成功",self.number)
                 UD.set(now_day, forKey: "today")
@@ -204,12 +209,44 @@ class ViewController: UIViewController {
             self.saveData.set(self.number, forKey: "d")
             print("保存できた")
         }
+        //モデルクラスをインスタンス化
+        let calendarRealm = CalendarRealm()
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy/MM/dd"
+                    
+        calendarRealm.hosu = String(step)
+        calendarRealm.date = formatter.string(from: now)
+                   
+                    print(calendarRealm)
+        /* 日付が変わった場合はtrueの処理 */
+             if judge == true {
+                
+                // Realmインスタンス取得
+                let realm = try! Realm()
+                         
+                // DB登録処理
+                try! realm.write {
+                    realm.add(calendarRealm)
+                    print("登録完了")
+                }
+                  judge = false
+             }
+             else {
+            print("更新処理")
+                // Realmインスタンス取得
+                let realm = try! Realm()
+                
+                let data = realm.objects(CalendarRealm.self).last
+                
+                try! realm.write {
+                    data?.hosu = String(step)
+                    data?.date = formatter.string(from:now)
+                    print("更新完了")
+                }
+             }
         
     }
-
-   
-    
-   
     
     //オカメちゃんのアニメーションのメソッド
     @objc func animation(){
@@ -221,14 +258,11 @@ class ViewController: UIViewController {
     //ヘルスケアのメソッド
     @objc func health(){
         
-        
-       
         //スタートの日付を設定する
         let startDay = Calendar.current.startOfDay(for: now)
+        
         //取得するデータの開始と終わりを入れる
         let predicate = HKQuery.predicateForSamples(withStart: startDay, end: now)
-        
-        
         
         //クエリを作る、統計データを取得するために使う、数値で計測できるデータのみ、cumulativeSum：合計値
         let query = HKStatisticsQuery(quantityType: self.type,
@@ -243,13 +277,13 @@ class ViewController: UIViewController {
             //コンソールに表示
             print(step)
                
+            }
+            //メインスレッド対応
+            DispatchQueue.main.async { [self] in
+                //歩数のラベルに表示
                 self.goukeiLabel.text = "今日の歩数は"+String(step)+"歩"
                 
-            }
-            
-                
-                
-                
+                }
                 
                 
             }
@@ -258,16 +292,12 @@ class ViewController: UIViewController {
         healthStore.execute(query)
        
         }
-    
-    
-    
-  
-    
+    //300歩の対応メソッド
    @objc func Achievement(){
         //歩数を達成したら
     if step >= 3000{
-                            //エサが与えられるようになる
-                            self.esaButton.isEnabled = true
+            //エサが与えられるようになる
+            self.esaButton.isEnabled = true
             print("3000")
                             
     }else {
@@ -276,7 +306,6 @@ class ViewController: UIViewController {
     }
         
     }
-    
     
     //エサを与えるボタンのメソッド
         @IBAction func eat(){
@@ -289,21 +318,13 @@ class ViewController: UIViewController {
 
                     addAnimationView()
             
-           
-            
-          
             //「お腹すいた」ラベルを非表示にする
             onakaLabel.isHidden = true
             
             huki.isHidden = true
            
-            
-        
-                
-                
+            //エサボタンを使えなくする
             esaButton.isEnabled = false
-          
-
         }
     //ごはんを食べるアニメーション
     func addAnimationView() {
@@ -337,49 +358,6 @@ class ViewController: UIViewController {
                     }
                 }
     }
-    
-    
-    
-    @IBAction func add(){
-        //realm関係
-        //モデルクラスをインスタンス化
-        let calendarRealm = CalendarRealm()
-        
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy/MM/dd"
-                    
-        calendarRealm.hosu = String(step)
-        calendarRealm.date = formatter.string(from: now)
-                   
-                    print(calendarRealm)
-        /* 日付が変わった場合はtrueの処理 */
-             if judge == true {
-                
-                // Realmインスタンス取得
-                let realm = try! Realm()
-                         
-                // DB登録処理
-                try! realm.write {
-                    realm.add(calendarRealm)
-                    print("登録完了")
-                }
-                  judge = false
-             }
-             else {
-            print("更新処理")
-                // Realmインスタンス取得
-                let realm = try! Realm()
-                
-                let data = realm.objects(CalendarRealm.self).last
-                
-                try! realm.write {
-                    data?.hosu = String(step)
-                    data?.date = formatter.string(from: now)
-                    print("更新完了")
-                }
-             }
-        }
-        
        
     }
 

@@ -86,7 +86,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         cell.hosuLabel.textColor = UIColor(red: 228/255, green: 245/255, blue: 222/255, alpha: 1)
         cell.dateLabel.textColor = UIColor(red: 228/255, green: 245/255, blue: 222/255, alpha: 1)
         
-        
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none
         //歩数を表示(realm)
        
         let item = self.objs[(indexPath as NSIndexPath).row]
@@ -96,6 +96,15 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         
             return cell
         }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        performSegue(withIdentifier: "ModalSegue", sender: nil)
+        // タップされたセルの行番号を出力
+                print("\(indexPath.row)番目の行が選択されました。")
+        
+        }
+    
     
     
 
