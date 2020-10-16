@@ -211,7 +211,7 @@
                     <navigationItem key="navigationItem" title="calendar" id="eod-fh-eFC"/>
                     <connections>
                         <outlet property="tableView" destination="wNP-Sv-90x" id="x2C-q9-2J8"/>
-                        <segue destination="7Bt-OW-DPl" kind="modal" identifier="ModalSegue" id="8FV-e2-VL3"/>
+                        <segue destination="7Bt-OW-DPl" kind="presentation" identifier="ModalSegue" id="8FV-e2-VL3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VL4-Wm-fWW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -129,6 +129,8 @@ class ViewController: UIViewController {
         
         Achievement()
         
+       
+        
     }
    
     override func didReceiveMemoryWarning() {
@@ -155,30 +157,30 @@ class ViewController: UIViewController {
                 self.date1()
             }
     }
+    
+   
     //日時経過チェック
     @objc func date1(){
         
-        //現在のカレンダ情報を設定
-        let calender = Calendar(identifier: .gregorian)
-        let now_day = now + (60 * 60 * 9)
+        let f = DateFormatter()
+        f.dateStyle = .long
+        f.timeStyle = .none
+        let now = Date()
+        print(f.string(from: now))
+        
+        
         
             //UserDefaultsにtodayキーに値があるか判定、あるならば
             if UD.object(forKey: "today") != nil {
             //最初にpast_dayにすでに保存してあった日時情報を取り出して代入
-            let past_day = UD.object(forKey: "today") as! Date
-            print(past_day)
-            //nowに現在の日付を代入
-            let now1 = calender.dateComponents([.year,.month,.day], from: now_day)
-            print(now_day)
-            //pastにpast_dayの日時情報を使って過去の日付を代入
-            let past = calender.dateComponents([.year,.month,.day], from: past_day)
+            let past_day = UD.object(forKey: "today") as? String
+                print(past_day as Any)
            
-            print(past)
-            print(now1)
+            
             
 
              //日にちが変わっていた場合
-             if now1 != past {
+                if f.string(from: now) != past_day {
                 judge = true
                 debugPrint("変わっていた")
                     //保存したものを取り出す
@@ -186,10 +188,12 @@ class ViewController: UIViewController {
                     //取り出したものから＋１する
                     self.number = self.number + 1
                     
+                    self.dateplusLabel.text = String(number)
                 
                 //コンソールに表示
                 print("成功",self.number)
-                UD.set(now_day, forKey: "today")
+                    //セットする
+                UD.set(f.string(from: now), forKey: "today")
                 
                 print("完了")
                 
@@ -197,14 +201,14 @@ class ViewController: UIViewController {
              else {
                 
                 judge = false
-                UD.set(now_day, forKey: "today")
+                UD.set(f.string(from: now), forKey: "today")
                 debugPrint("そのまま")
                
              }
          }else {
             judge = true
            //今の日時を保存
-            UD.set(now_day, forKey: "today")
+            UD.set(f.string(from: now), forKey: "today")
             //新しい値を保存する
             self.saveData.set(self.number, forKey: "d")
             print("保存できた")
